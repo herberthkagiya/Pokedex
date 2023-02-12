@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Pokedex</string>
+    <string name="pokedex_home_button">Pokedéx</string>
+    <string name="regions_button">Regiões</string>
+    <string name="favorites_button">Favoritos</string>
+    <string name="profile_button">Perfil</string>
 </resources>
