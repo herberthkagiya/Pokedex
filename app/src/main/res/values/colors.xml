@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="splashScreenBackground">#000029</color>
+    <color name="buttonsAndMenu">#173EA5</color>
 </resources>
