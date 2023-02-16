@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/pokedex_home">
+
+    <fragment
+        android:id="@+id/pokedex_home"
+        android:name="com.kagiya.pokedex.PokedexFragment"
+        android:label="PokedexFragment" />
+    <fragment
+        android:id="@+id/regions"
+        android:name="com.kagiya.pokedex.RegionsFragment"
+        android:label="RegionsFragment" />
+    <fragment
+        android:id="@+id/favorites"
+        android:name="com.kagiya.pokedex.FavoritesFragment"
+        android:label="FavoritesFragment" />
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.kagiya.pokedex.ProfileFragment"
+        android:label="ProfileFragment" />
+</navigation>
