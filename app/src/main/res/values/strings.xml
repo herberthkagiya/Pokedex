@@ -1,7 +1,29 @@
 <resources>
     <string name="app_name">Pokedex</string>
-    <string name="pokedex_home_button">Pokedéx</string>
-    <string name="regions_button">Regiões</string>
-    <string name="favorites_button">Favoritos</string>
-    <string name="profile_button">Perfil</string>
+
+    <!-- Strings for bottom navigation menu -->
+        <string name="pokedex_home_button">Pokedéx</string>
+        <string name="regions_button">Regiões</string>
+        <string name="favorites_button">Favoritos</string>
+        <string name="profile_button">Perfil</string>
+
+
+    <!-- Strings for On Boarding Screen -->
+
+        <!--Titles-->
+        <string name="first_slide_title">Todos os Pokémons em um só Lugar</string>
+        <string name="second_slide_title">Mantenha sua Pokedéx atualizada</string>
+        <string name="third_slide_title">Está pronto para essa aventura?</string>
+
+        <!--Descriptions-->
+        <string name="first_slide_desc">Acesse uma vasta lista de Pokémon de todas as gerações já feitas pela Nintendo</string>
+        <string name="second_slide_desc">Cadastre-se e mantenha seu perfil, pokémon favoritos, configurações e muito mais, salvos no aplicativo, mesmo sem conexão com a internet.</string>
+
+
+        <!--Buttons-->
+        <string name="continue_button">Continuar</string>
+        <string name="let_get_started_button">Vamos começar</string>
+        <string name="skip_button">Pular</string>
+
+
 </resources>

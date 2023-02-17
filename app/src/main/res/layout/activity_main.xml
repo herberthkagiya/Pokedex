@@ -9,11 +9,19 @@
     tools:context=".MainActivity">
 
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_navigation_menu"
-        app:itemTextColor="@color/buttonsAndMenu" />
+        app:itemTextColor="@color/buttonsAndMenu" >
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 </RelativeLayout>

@@ -4,17 +4,17 @@
     <item android:id="@+id/pokedex_home"
         android:color="@color/buttonsAndMenu"
         android:title="@string/pokedex_home_button"
-        android:icon="@drawable/pokedex_home_selector" />
+        android:icon="@drawable/selector_pokedex_home" />
 
     <item android:id="@+id/regions"
         android:title="@string/regions_button"
-        android:icon="@drawable/regions_selector" />
+        android:icon="@drawable/selector_regions" />
 
     <item android:id="@+id/favorites"
        android:title="@string/favorites_button"
-        android:icon="@drawable/favorite_selector" />
+        android:icon="@drawable/selector_favorite" />
 
     <item android:id="@+id/profile"
         android:title="@string/profile_button"
-        android:icon="@drawable/profile_selector" />
+        android:icon="@drawable/selector_profile" />
 </menu>
