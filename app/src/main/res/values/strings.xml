@@ -9,7 +9,6 @@
 
 
     <!-- Strings for On Boarding Screen -->
-
     <!--Titles-->
     <string name="first_slide_title">Todos os Pokémons em um só Lugar</string>
     <string name="second_slide_title">Mantenha sua Pokedéx atualizada</string>
@@ -24,7 +23,7 @@
 
     <!--Buttons-->
     <string name="continue_button">Continuar</string>
-    <string name="let_get_started_button">Vamos começar</string>
+    <string name="let_get_started_button">Vamos começar!</string>
     <string name="skip_button">Pular</string>
     <string name="create_account_button">Criar conta</string>
     <string name="already_has_account_button">Já tenho uma conta</string>

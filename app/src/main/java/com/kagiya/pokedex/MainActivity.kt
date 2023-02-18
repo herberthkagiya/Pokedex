@@ -15,8 +15,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         installSplashScreen()
+
+
 
         if(isFirstTimeLaunchingTheApp()){
             showOnboardingScreen()
@@ -59,10 +60,11 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun isFirstTimeLaunchingTheApp(): Boolean {
-        return true
-    }
 
+    fun isFirstTimeLaunchingTheApp(): Boolean {
+        val preference = getSharedPreferences("USER_PREFERENCES", MODE_PRIVATE)
+        return !preference.contains("ALREADY_SAW_ONBRANDING_SCREEN")
+    }
 }
 
 
