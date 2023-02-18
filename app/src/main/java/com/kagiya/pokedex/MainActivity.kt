@@ -15,8 +15,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //Start Splash Screen
+
         installSplashScreen()
+
+        if(isFirstTimeLaunchingTheApp()){
+            showOnboardingScreen()
+        }
 
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -48,12 +52,15 @@ class MainActivity : AppCompatActivity() {
         // Set default BottomNavigationMenu Selection
         binding.bottomNavigationView.selectedItemId = R.id.pokedex_home
 
+    }
 
+    private fun showOnboardingScreen() {
+        var intent = Intent(this@MainActivity, OnboardingActivity::class.java)
+        startActivity(intent)
+    }
 
-        binding.button.setOnClickListener{
-            var intent = Intent(this@MainActivity, OnboardingActivity::class.java)
-            startActivity(intent)
-        }
+    private fun isFirstTimeLaunchingTheApp(): Boolean {
+        return true
     }
 
 }

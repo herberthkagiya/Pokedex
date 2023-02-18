@@ -18,7 +18,8 @@ class OnboardingHolder(val binding: ItemOnboardingBinding) : RecyclerView.ViewHo
 class OnboardingAdapater(
     val images: List<Int>,
     val titles: List<Int>,
-    val descriptions: List<Int>
+    val descriptions: List<Int>,
+     val buttonTexts: List<Int>
 ): RecyclerView.Adapter<OnboardingHolder>() {
 
 
@@ -39,9 +40,11 @@ class OnboardingAdapater(
         val currentImage = images[position]
         val currentTitle = titles[position]
         val currentDescription = descriptions[position]
+        val currentButtonText = buttonTexts[position]
 
         holder.binding.onboardingImage.setImageResource(currentImage)
         holder.binding.onboardingTitle.setText(currentTitle)
         holder.binding.onboardingDescription.setText(currentDescription)
+        holder.binding.onboardingButton.setText(currentButtonText)
     }
 }
