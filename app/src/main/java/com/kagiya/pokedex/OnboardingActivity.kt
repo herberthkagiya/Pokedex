@@ -2,6 +2,7 @@ package com.kagiya.pokedex
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.kagiya.pokedex.databinding.ActivityOnboardingBinding
 
@@ -16,13 +17,31 @@ class OnboardingActivity : AppCompatActivity() {
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        val images = listOf(R.drawable.onboarding_1, R.drawable.onboarding_2)
-        val titles = listOf(R.string.first_slide_title, R.string.second_slide_title)
-        val descriptions = listOf(R.string.first_slide_desc, R.string.second_slide_desc)
-        val buttonTexts = listOf(R.string.continue_button, R.string.let_get_started_button)
-        val adapter = OnboardingAdapater(images, titles, descriptions, buttonTexts)
-        binding.slider.adapter = adapter
+        setOnboardingItems()
     }
 
+    private fun setOnboardingItems(){
+        val onboardingItems = listOf(
+            OnboardingItem(
+                R.drawable.onboarding_1,
+                R.string.first_slide_title,
+                R.string.first_slide_desc,
+                R.string.continue_button
+            ) {
+                Log.d("Onboarding", "Continue Button Pressed")
+            },
+
+            OnboardingItem(
+                R.drawable.onboarding_2,
+                R.string.second_slide_title,
+                R.string.second_slide_desc,
+                R.string.let_get_started_button
+            ) {
+                Log.d("Onboarding", "Let Get Started Button Pressed")
+            }
+        )
+
+        val adapter = OnboardingAdapater(onboardingItems)
+        binding.slider.adapter = adapter
+    }
 }

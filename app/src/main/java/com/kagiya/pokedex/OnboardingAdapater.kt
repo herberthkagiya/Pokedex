@@ -11,15 +11,26 @@ import com.kagiya.pokedex.databinding.ItemOnboardingBinding
 
 
 class OnboardingHolder(val binding: ItemOnboardingBinding) : RecyclerView.ViewHolder(binding.root){
+    fun bind(item: OnboardingItem){
+        val currentImage = item.image
+        val currentTitle = item.title
+        val currentDescription = item.description
+        val currentButtonText = item.buttonText
 
+        binding.onboardingImage.setImageResource(currentImage)
+        binding.onboardingTitle.setText(currentTitle)
+        binding.onboardingDescription.setText(currentDescription)
+        binding.onboardingButton.setText(currentButtonText)
+
+        binding.onboardingButton.setOnClickListener{
+            item.onButtonClicked()
+        }
+    }
 }
 
 
 class OnboardingAdapater(
-    val images: List<Int>,
-    val titles: List<Int>,
-    val descriptions: List<Int>,
-     val buttonTexts: List<Int>
+    val items: List<OnboardingItem>
 ): RecyclerView.Adapter<OnboardingHolder>() {
 
 
@@ -32,19 +43,11 @@ class OnboardingAdapater(
 
 
     override fun getItemCount(): Int {
-        return images.size
+        return items.size
     }
 
 
     override fun onBindViewHolder(holder: OnboardingHolder, position: Int) {
-        val currentImage = images[position]
-        val currentTitle = titles[position]
-        val currentDescription = descriptions[position]
-        val currentButtonText = buttonTexts[position]
-
-        holder.binding.onboardingImage.setImageResource(currentImage)
-        holder.binding.onboardingTitle.setText(currentTitle)
-        holder.binding.onboardingDescription.setText(currentDescription)
-        holder.binding.onboardingButton.setText(currentButtonText)
+        holder.bind(items[position])
     }
 }
