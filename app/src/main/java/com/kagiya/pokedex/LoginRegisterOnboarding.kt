@@ -8,8 +8,8 @@ import com.kagiya.pokedex.databinding.ActivityLoginRegisterOnboardingBinding
 
 class LoginRegisterOnboarding : AppCompatActivity() {
 
-
     private lateinit var binding: ActivityLoginRegisterOnboardingBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

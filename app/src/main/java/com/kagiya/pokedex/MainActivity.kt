@@ -15,8 +15,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        installSplashScreen()
 
+        installSplashScreen()
 
 
         if(isFirstTimeLaunchingTheApp()){
@@ -29,13 +29,13 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.itemIconTintList = null
 
 
+
         //Configuration of BottomNavigationMenu
         val fragmentManager: FragmentManager = supportFragmentManager
         val pokedexFragment = PokedexFragment()
         val regionsFragment = RegionsFragment()
         val favoritesFragment = FavoritesFragment()
         val profileFragment = ProfileFragment()
-
 
         binding.bottomNavigationView.setOnItemSelectedListener { item ->
             var fragment: Fragment = PokedexFragment()
@@ -62,8 +62,9 @@ class MainActivity : AppCompatActivity() {
 
 
     fun isFirstTimeLaunchingTheApp(): Boolean {
-        val preference = getSharedPreferences("USER_PREFERENCES", MODE_PRIVATE)
-        return !preference.contains("ALREADY_SAW_ONBRANDING_SCREEN")
+//        val preference = getSharedPreferences("USER_PREFERENCES", MODE_PRIVATE)
+//        return !preference.contains("ALREADY_SAW_ONBRANDING_SCREEN")
+        return true
     }
 }
 

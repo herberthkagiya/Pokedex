@@ -11,7 +11,7 @@
     <!-- Strings for On Boarding Screen -->
     <!--Titles-->
     <string name="first_slide_title">Todos os Pokémons em um só Lugar</string>
-    <string name="second_slide_title">Mantenha sua Pokedéx atualizada</string>
+    <string name="second_slide_title">Mantenha sua\nPokedéx atualizada</string>
     <string name="login_register_title">Está pronto para essa aventura?</string>
 
 

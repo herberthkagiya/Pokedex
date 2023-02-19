@@ -6,13 +6,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp">
+    android:padding="30dp">
 
     <ImageView
         android:id="@+id/onboarding_image"
         android:layout_width="0dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="36dp"
+        android:layout_height="270dp"
+        android:layout_marginTop="40dp"
         android:padding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
@@ -25,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="@font/poppins_medium"
         android:gravity="center"
@@ -42,17 +43,19 @@
         android:id="@+id/onboarding_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/poppins"
         android:gravity="center"
         android:padding="10dp"
         android:text="@string/first_slide_desc"
+        android:textAlignment="center"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/onboarding_title" />
+
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -62,6 +65,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

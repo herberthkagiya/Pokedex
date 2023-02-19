@@ -12,6 +12,7 @@ import com.kagiya.pokedex.databinding.ActivityOnboardingBinding
 
 private const val ALREADY_SAW_ONBRANDING_SCREEN = "ALREADY_SAW_ONBRANDING_SCREEN"
 private const val USER_PREFERENCES = "USER_PREFERENCES"
+
 class OnboardingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnboardingBinding
@@ -22,19 +23,18 @@ class OnboardingActivity : AppCompatActivity() {
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
         setOnboardingItems()
 
-
+        binding.dotsIndicator.attachTo(binding.slider)
 
         //Disable the back button
         onBackPressedDispatcher.addCallback(this) {
-
         }
-
-
     }
 
     private fun setOnboardingItems(){
+
         val onboardingItems = listOf(
             OnboardingItem(
                 R.drawable.onboarding_1,
@@ -42,7 +42,7 @@ class OnboardingActivity : AppCompatActivity() {
                 R.string.first_slide_desc,
                 R.string.continue_button
             ) {
-                Log.d("Onboarding", "Continue Button Pressed")
+                binding.slider.currentItem += 1
             },
 
             OnboardingItem(
@@ -51,7 +51,6 @@ class OnboardingActivity : AppCompatActivity() {
                 R.string.second_slide_desc,
                 R.string.let_get_started_button
             ) {
-
                 val preferences = getSharedPreferences(USER_PREFERENCES, MODE_PRIVATE)
                 val editor: Editor = preferences.edit()
                 editor.putBoolean(ALREADY_SAW_ONBRANDING_SCREEN, true)
