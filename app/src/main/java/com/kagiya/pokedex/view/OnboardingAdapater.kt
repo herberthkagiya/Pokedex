@@ -1,12 +1,8 @@
-package com.kagiya.pokedex
+package com.kagiya.pokedex.view
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager.widget.PagerAdapter
 import com.kagiya.pokedex.databinding.ItemOnboardingBinding
 
 

@@ -1,4 +1,4 @@
-package com.kagiya.pokedex
+package com.kagiya.pokedex.view
 
 import java.util.*
 

@@ -1,12 +1,11 @@
-package com.kagiya.pokedex
+package com.kagiya.pokedex.view
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.SharedPreferences.Editor
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
+import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.ActivityOnboardingBinding
 
 

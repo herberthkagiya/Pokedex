@@ -1,4 +1,4 @@
-package com.kagiya.pokedex
+package com.kagiya.pokedex.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

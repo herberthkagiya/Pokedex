@@ -1,4 +1,4 @@
-package com.kagiya.pokedex
+package com.kagiya.pokedex.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +30,6 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.itemIconTintList = null
 
 
-
         //Configuration of BottomNavigationMenu
         val fragmentManager: FragmentManager = supportFragmentManager
         val pokedexFragment = PokedexFragment()
@@ -50,21 +50,21 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
+
         // Set default BottomNavigationMenu Selection
         binding.bottomNavigationView.selectedItemId = R.id.pokedex_home
-
     }
+
+
 
     private fun showOnboardingScreen() {
         var intent = Intent(this@MainActivity, OnboardingActivity::class.java)
         startActivity(intent)
     }
 
-
     fun isFirstTimeLaunchingTheApp(): Boolean {
-//        val preference = getSharedPreferences("USER_PREFERENCES", MODE_PRIVATE)
-//        return !preference.contains("ALREADY_SAW_ONBRANDING_SCREEN")
-        return true
+        val preference = getSharedPreferences("USER_PREFERENCES", MODE_PRIVATE)
+        return !preference.contains("ALREADY_SAW_ONBRANDING_SCREEN")
     }
 }
 
