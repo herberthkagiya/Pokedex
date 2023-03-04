@@ -20,23 +20,26 @@ class PokedexViewModel : ViewModel() {
     val pokemons: StateFlow<List<Pokemon>>
         get() = _pokemons.asStateFlow()
 
+    var pokemonDetailList: List<PokemonDetails> = emptyList()
 
     init {
         viewModelScope.launch {
             try {
                 val response = PokemonRepository().fetchPokemonList()
                 _pokemons.value = response
+
+                getPokemonDetails(pokemons.value)
             }
             catch (ex: Exception) {
                 Log.d(TAG, "Loading pokemons error", ex)
             }
+
         }
     }
 
 
-
-    suspend fun getPokemonDetails(pokemons: List<Pokemon>) : List<PokemonDetails>{
-        var pokemonDetails: List<PokemonDetails> = emptyList()
+    suspend fun getPokemonDetails(pokemons: List<Pokemon>): List<PokemonDetails>{
+        var pokemonDetails = emptyList<PokemonDetails>()
 
         pokemons.forEach() {
             val response = PokemonRepository().searchPokemon(it.name)

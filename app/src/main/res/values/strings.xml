@@ -27,6 +27,7 @@
     <string name="skip_button">Pular</string>
     <string name="create_account_button">Criar conta</string>
     <string name="already_has_account_button">Já tenho uma conta</string>
+    <string name="search_bar_hint">Procurar Pókemon</string>
 
 
 </resources>

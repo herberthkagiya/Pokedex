@@ -50,9 +50,8 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
                 pokedexViewModel.pokemons.collect{ pokemons ->
 
-                    var pokemonDetails = pokedexViewModel.getPokemonDetails(pokemons)
-
-                    binding.pokedexList.adapter = PokedexAdapter(pokemonDetails)
+                    val details = pokedexViewModel.getPokemonDetails(pokemons)
+                    binding.pokedexList.adapter = PokedexAdapter(details)
                 }
             }
         }
