@@ -12,7 +12,7 @@
     </style>
 
     <style name="Theme.Pokedex.Buttons">
-        <item name="android:background">@drawable/button_background</item>
+        <item name="android:background">@drawable/rounded_background</item>
         <item name="colorAccent">@color/buttonsAndMenu</item>
         <item name="android:fontFamily">@font/poppins_semibold</item>
         <item name="android:textSize">18dp</item>

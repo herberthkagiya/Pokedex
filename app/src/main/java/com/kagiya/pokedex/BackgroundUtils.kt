@@ -83,5 +83,32 @@ class BackgroundUtils {
 
             return typeImage
         }
+
+        fun getOutlineImage(pokemonType: String) : Int{
+
+            val typeImage = when(pokemonType){
+                "grass" -> R.drawable.ic_grass_outline
+                "fire" -> R.drawable.ic_fire_outline
+                "water" -> R.drawable.ic_water_outline
+                "bug" -> R.drawable.ic_bug_outline
+                "electric" -> R.drawable.ic_electric_outline
+                "fairy" -> R.drawable.ic_fairy_outline
+                "ground" -> R.drawable.ic_ground_outline
+                "rock" -> R.drawable.ic_rock_outline
+                "normal" -> R.drawable.ic_normal_outline
+                "poison" -> R.drawable.ic_poison_outline
+                "psychic" -> R.drawable.ic_psychic_outline
+                "steel" -> R.drawable.ic_steel_outline
+                "dragon" -> R.drawable.ic_dragon_outline
+                "fighting" -> R.drawable.ic_fighting_outline
+                "dark" -> R.drawable.ic_dark_outline
+                "ghost" -> R.drawable.ic_ghost_outline
+                "ice" -> R.drawable.ic_ice_outline
+                "flying" -> R.drawable.ic_flying_outline
+                else -> throw IllegalArgumentException()
+            }
+
+            return typeImage
+        }
     }
 }

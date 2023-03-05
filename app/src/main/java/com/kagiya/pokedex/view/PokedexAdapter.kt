@@ -8,6 +8,7 @@ import androidx.viewbinding.ViewBinding
 import coil.load
 import com.kagiya.pokedex.BackgroundUtils
 import com.kagiya.pokedex.BackgroundUtils.Companion.getBackgroundColor
+import com.kagiya.pokedex.BackgroundUtils.Companion.getOutlineImage
 import com.kagiya.pokedex.BackgroundUtils.Companion.getTypeBackgroundColor
 import com.kagiya.pokedex.BackgroundUtils.Companion.getTypeImage
 import com.kagiya.pokedex.api.PokemonDetails
@@ -63,28 +64,37 @@ class PokedexAdapter(private val pokemonList: List<PokemonDetails>) : RecyclerVi
 
     inner class PokemonOneTypeHolder(private val binding: ListItemPokedexOneTypeBinding) :
         PokemonHolder(binding) {
+
         override fun bind(pokemon: PokemonDetails) {
+
+            //Change pokedex item background color
             val rootBackgroundColor = getBackgroundColor(pokemon.types[0].type.name)
             binding.root.background.setTint(Color.parseColor(rootBackgroundColor))
+
 
             binding.pokemonId.text = "N°" + pokemon.id.toString().padStart(3, '0')
             binding.pokemonName.text = pokemon.name.capitalize()
             binding.pokemonImage.load(pokemon.sprites.front_default)
 
+            //Show pokemon type
             val pokemonType =  pokemon.types[0].type.name
             binding.typeName.text = pokemonType.capitalize()
             val typeBackgroundColor = getTypeBackgroundColor(pokemonType)
             binding.type.background.setTint(Color.parseColor(typeBackgroundColor))
-
             val pokemonTypeImage = getTypeImage(pokemonType)
             binding.typeImage.setImageResource(pokemonTypeImage)
+
+            //Change outline of pokemon image
+            binding.pokemonOutline.background.setTint(Color.parseColor(typeBackgroundColor))
+            binding.pokemonOutline.setImageResource(getOutlineImage(pokemonType))
         }
     }
+
 
     inner class PokemonTwoTypesHolder(private val binding: ListItemPokedexTwoTypesBinding) :
         PokemonHolder(binding) {
         override fun bind(pokemon: PokemonDetails) {
-
+            //Change pokedex item background color
             val rootBackgroundColor = getBackgroundColor(pokemon.types[0].type.name)
             binding.root.background.setTint(Color.parseColor(rootBackgroundColor))
 
@@ -92,22 +102,26 @@ class PokedexAdapter(private val pokemonList: List<PokemonDetails>) : RecyclerVi
             binding.pokemonName.text = pokemon.name.capitalize()
             binding.pokemonImage.load(pokemon.sprites.front_default)
 
-
+            //Show first pokemon types
             val pokemonType1 =  pokemon.types[0].type.name
             binding.typeName1.text = pokemonType1.capitalize()
             val typeBackgroundColor1 = getTypeBackgroundColor(pokemonType1)
             binding.type1.background.setTint(Color.parseColor(typeBackgroundColor1))
-
-            val pokemonType2 =  pokemon.types[1].type.name
-            binding.typeName2.text = pokemonType2.capitalize()
-            val typeBackgroundColor = getTypeBackgroundColor(pokemonType2)
-            binding.type2.background.setTint(Color.parseColor(typeBackgroundColor))
-
             val pokemonTypeImage1 = getTypeImage(pokemonType1)
             binding.typeImage1.setImageResource(pokemonTypeImage1)
 
+
+            //Show second pokemon type
+            val pokemonType2 =  pokemon.types[1].type.name
+            binding.typeName2.text = pokemonType2.capitalize()
+            val typeBackgroundColor2 = getTypeBackgroundColor(pokemonType2)
+            binding.type2.background.setTint(Color.parseColor(typeBackgroundColor2))
             val pokemonTypeImage2 = getTypeImage(pokemonType2)
             binding.typeImage2.setImageResource(pokemonTypeImage2)
+
+            //Change outline of pokemon image
+            binding.pokemonOutline.background.setTint(Color.parseColor(typeBackgroundColor1))
+            binding.pokemonOutline.setImageResource(getOutlineImage(pokemonType1))
         }
     }
 }
