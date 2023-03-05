@@ -25,7 +25,7 @@ class PokedexViewModel : ViewModel() {
     init {
         viewModelScope.launch {
             try {
-                val response = PokemonRepository().fetchPokemonList()
+                val response = PokemonRepository().fetchPokemonList(0, 151)
                 _pokemons.value = response
 
                 getPokemonDetails(pokemons.value)
@@ -33,10 +33,8 @@ class PokedexViewModel : ViewModel() {
             catch (ex: Exception) {
                 Log.d(TAG, "Loading pokemons error", ex)
             }
-
         }
     }
-
 
     suspend fun getPokemonDetails(pokemons: List<Pokemon>): List<PokemonDetails>{
         var pokemonDetails = emptyList<PokemonDetails>()
