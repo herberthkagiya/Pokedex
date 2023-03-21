@@ -1,4 +1,4 @@
-package com.kagiya.pokedex.view
+package com.kagiya.pokedex.ui
 
 import androidx.fragment.app.Fragment
 import com.kagiya.pokedex.R

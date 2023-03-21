@@ -1,6 +1,4 @@
-package com.kagiya.pokedex.view
-
-import java.util.*
+package com.kagiya.pokedex.ui
 
 data class OnboardingItem(
     val image: Int,

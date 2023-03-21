@@ -6,18 +6,18 @@
 
     <fragment
         android:id="@+id/pokedex_home"
-        android:name="com.kagiya.pokedex.view.PokedexFragment"
+        android:name="com.kagiya.pokedex.ui.PokedexFragment"
         android:label="PokedexFragment" />
     <fragment
         android:id="@+id/regions"
-        android:name="com.kagiya.pokedex.view.RegionsFragment"
+        android:name="com.kagiya.pokedex.ui.RegionsFragment"
         android:label="RegionsFragment" />
     <fragment
         android:id="@+id/favorites"
-        android:name="com.kagiya.pokedex.view.FavoritesFragment"
+        android:name="com.kagiya.pokedex.ui.FavoritesFragment"
         android:label="FavoritesFragment" />
     <fragment
         android:id="@+id/profile"
-        android:name="com.kagiya.pokedex.view.ProfileFragment"
+        android:name="com.kagiya.pokedex.ui.ProfileFragment"
         android:label="ProfileFragment" />
 </navigation>

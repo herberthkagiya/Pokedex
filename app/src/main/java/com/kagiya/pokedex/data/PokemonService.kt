@@ -1,4 +1,4 @@
-package com.kagiya.pokedex.api
+package com.kagiya.pokedex.data
 
 import retrofit2.http.GET
 import retrofit2.http.Path

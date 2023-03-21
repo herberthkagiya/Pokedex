@@ -1,8 +1,9 @@
-package com.kagiya.pokedex.view
+package com.kagiya.pokedex.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.addCallback
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -53,6 +54,10 @@ class MainActivity : AppCompatActivity() {
 
         // Set default BottomNavigationMenu Selection
         binding.bottomNavigationView.selectedItemId = R.id.pokedex_home
+
+        //Disable the back button
+        onBackPressedDispatcher.addCallback(this) {
+        }
     }
 
 

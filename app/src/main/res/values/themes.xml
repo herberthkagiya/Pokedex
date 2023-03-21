@@ -4,6 +4,11 @@
 
     </style>
 
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
     <style name="Theme.Pokedex.SplashScreen" parent="Theme.SplashScreen">
 
         <item name="windowSplashScreenBackground">@color/splashScreenBackground</item>
@@ -18,5 +23,9 @@
         <item name="android:textSize">18dp</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:padding">15dp</item>
+    </style>
+
+    <style name="Theme.Pokedex.ToolBar" parent="Theme.SplashScreen">
+        <item name="android:background">@android:color/transparent</item>
     </style>
 </resources>

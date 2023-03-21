@@ -1,4 +1,6 @@
-package com.kagiya.pokedex
+package com.kagiya.pokedex.ui
+
+import com.kagiya.pokedex.R
 
 class BackgroundUtils {
 

@@ -3,9 +3,9 @@ package com.kagiya.pokedex.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kagiya.pokedex.PokemonRepository
-import com.kagiya.pokedex.api.Pokemon
-import com.kagiya.pokedex.api.PokemonDetails
+import com.kagiya.pokedex.data.PokemonRepository
+import com.kagiya.pokedex.data.Pokemon
+import com.kagiya.pokedex.data.PokemonDetails
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -21,11 +21,17 @@ class PokedexViewModel : ViewModel() {
         get() = _pokemons.asStateFlow()
 
 
+    private val _pokemonDetails: MutableStateFlow<List<PokemonDetails>> = MutableStateFlow(emptyList())
+    val pokemonDetails: StateFlow<List<PokemonDetails>>
+        get() = _pokemonDetails.asStateFlow()
+
+
     init {
         viewModelScope.launch {
             try {
-                val response = PokemonRepository().fetchPokemonList(0, 20)
+                val response = PokemonRepository().fetchPokemonList(0, 10)
                 _pokemons.value = response
+                _pokemonDetails.value = PokemonRepository().getPokemonDetails(_pokemons.value)
             }
             catch (ex: Exception) {
                 Log.d(TAG, "Loading pokemons error", ex)
@@ -33,14 +39,33 @@ class PokedexViewModel : ViewModel() {
         }
     }
 
-    suspend fun getPokemonDetails(pokemons: List<Pokemon>): List<PokemonDetails>{
-        var pokemonDetails = emptyList<PokemonDetails>()
 
-        pokemons.forEach() {
-            val response = PokemonRepository().searchPokemon(it.name)
-            pokemonDetails += response
+    fun setQuery(query : String){
+        viewModelScope.launch{
+            try {
+                _pokemonDetails.value = fetchPokemon(query)
+            }
+            catch (ex: Exception){
+                Log.e(TAG, "Error at searching pokemon")
+            }
         }
+    }
 
-        return pokemonDetails
+    private suspend  fun fetchPokemon(query: String): List<PokemonDetails> {
+
+        return if(query.isNotEmpty()){
+            Log.d(TAG, "Query not empty")
+            setPokemonDetailToList(PokemonRepository().searchPokemon(query.lowercase()))
+        }
+        else{
+            Log.d(TAG, "Query empty")
+            PokemonRepository().getPokemonDetails(_pokemons.value)
+        }
+    }
+
+    private fun setPokemonDetailToList(pokemon: PokemonDetails): List<PokemonDetails> {
+        var list : List<PokemonDetails> = emptyList()
+        list += pokemon
+        return list
     }
 }

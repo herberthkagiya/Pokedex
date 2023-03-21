@@ -1,8 +1,5 @@
-package com.kagiya.pokedex
+package com.kagiya.pokedex.data
 
-import com.kagiya.pokedex.api.Pokemon
-import com.kagiya.pokedex.api.PokemonDetails
-import com.kagiya.pokedex.api.PokemonService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -34,4 +31,15 @@ class PokemonRepository {
 
 
     suspend fun searchPokemon(name: String): PokemonDetails = pokemonService.searchPokemon(name)
+
+    suspend fun getPokemonDetails(pokemons: List<Pokemon>) : List<PokemonDetails> {
+        var details : List<PokemonDetails> = emptyList()
+
+        pokemons.forEach() {
+            val response = searchPokemon(it.name)
+            details += response
+        }
+
+        return details
+    }
 }

@@ -1,4 +1,4 @@
-package com.kagiya.pokedex.view
+package com.kagiya.pokedex.ui
 
 import android.graphics.Color
 import android.view.LayoutInflater
@@ -6,12 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import coil.load
-import com.kagiya.pokedex.BackgroundUtils
-import com.kagiya.pokedex.BackgroundUtils.Companion.getBackgroundColor
-import com.kagiya.pokedex.BackgroundUtils.Companion.getOutlineImage
-import com.kagiya.pokedex.BackgroundUtils.Companion.getTypeBackgroundColor
-import com.kagiya.pokedex.BackgroundUtils.Companion.getTypeImage
-import com.kagiya.pokedex.api.PokemonDetails
+import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getBackgroundColor
+import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getOutlineImage
+import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getTypeBackgroundColor
+import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getTypeImage
+import com.kagiya.pokedex.data.PokemonDetails
 import com.kagiya.pokedex.databinding.ListItemPokedexOneTypeBinding
 import com.kagiya.pokedex.databinding.ListItemPokedexTwoTypesBinding
 

@@ -1,4 +1,4 @@
-package com.kagiya.pokedex.api
+package com.kagiya.pokedex.data
 
 import com.squareup.moshi.JsonClass
 
