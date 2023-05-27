@@ -55,7 +55,7 @@ class PokedexViewModel : ViewModel() {
 
         return if(query.isNotEmpty()){
             Log.d(TAG, "Query not empty")
-            setPokemonDetailToList(PokemonRepository().searchPokemon(query.lowercase()))
+            returnPokemonDetailInAList(PokemonRepository().searchPokemon(query.lowercase()))
         }
         else{
             Log.d(TAG, "Query empty")
@@ -63,7 +63,7 @@ class PokedexViewModel : ViewModel() {
         }
     }
 
-    private fun setPokemonDetailToList(pokemon: PokemonDetails): List<PokemonDetails> {
+    private fun returnPokemonDetailInAList(pokemon: PokemonDetails): List<PokemonDetails> {
         var list : List<PokemonDetails> = emptyList()
         list += pokemon
         return list

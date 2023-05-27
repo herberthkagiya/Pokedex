@@ -57,6 +57,7 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
             }
         }
 
+
         binding.searchBar.setOnQueryTextListener(object : androidx.appcompat.widget.SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(query: String?): Boolean {

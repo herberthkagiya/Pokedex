@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         installSplashScreen()
 
 
@@ -54,22 +53,16 @@ class MainActivity : AppCompatActivity() {
 
         // Set default BottomNavigationMenu Selection
         binding.bottomNavigationView.selectedItemId = R.id.pokedex_home
-
-        //Disable the back button
-        onBackPressedDispatcher.addCallback(this) {
-        }
-    }
-
-
-
-    private fun showOnboardingScreen() {
-        var intent = Intent(this@MainActivity, OnboardingActivity::class.java)
-        startActivity(intent)
     }
 
     fun isFirstTimeLaunchingTheApp(): Boolean {
         val preference = getSharedPreferences("USER_PREFERENCES", MODE_PRIVATE)
         return !preference.contains("ALREADY_SAW_ONBRANDING_SCREEN")
+    }
+
+    private fun showOnboardingScreen() {
+        var intent = Intent(this@MainActivity, OnboardingActivity::class.java)
+        startActivity(intent)
     }
 }
 

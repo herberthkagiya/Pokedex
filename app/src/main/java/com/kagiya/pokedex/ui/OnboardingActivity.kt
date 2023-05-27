@@ -1,5 +1,6 @@
 package com.kagiya.pokedex.ui
 
+import android.app.Activity
 import android.content.Intent
 import android.content.SharedPreferences.Editor
 import android.os.Bundle
@@ -53,10 +54,12 @@ class OnboardingActivity : AppCompatActivity() {
                 val preferences = getSharedPreferences(USER_PREFERENCES, MODE_PRIVATE)
                 val editor: Editor = preferences.edit()
                 editor.putBoolean(ALREADY_SAW_ONBRANDING_SCREEN, true)
-                editor.commit()
+                editor.apply()
 
-                val intent = Intent(this, LoginRegisterOnboarding::class.java)
-                startActivity(intent)
+//                val intent = Intent(this, LoginRegisterOnboarding::class.java)
+//                startActivity(intent)
+
+                finish()
             }
         )
 
