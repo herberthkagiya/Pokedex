@@ -73,8 +73,8 @@ class PokemonDetailsFragment : Fragment(){
 
         setPokemonTypesInDetails(pokemon)
 
-        binding.pokemonWeight.text = pokemon.weight.toString() + " Kg"
-        binding.pokemonHeight.text = pokemon.height.toString() + " m"
+        binding.pokemonWeight.text = (pokemon.weight / 100).toString() + "Kg"
+        binding.pokemonHeight.text = (pokemon.height / 10).toString() + " m"
     }
 
     private fun setPokemonTypesInDetails(pokemon: PokemonDetails){
