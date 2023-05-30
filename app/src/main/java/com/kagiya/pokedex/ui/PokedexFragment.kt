@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.FragmentPokedexBinding
@@ -52,7 +53,11 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 pokedexViewModel.pokemonDetails.collect { details ->
-                    binding.pokedexList.adapter = PokedexAdapter(details)
+                    binding.pokedexList.adapter = PokedexAdapter(details){pokemonName ->
+                        findNavController().navigate(
+                            PokedexFragmentDirections.showPokemonDetails(pokemonName)
+                        )
+                    }
                 }
             }
         }

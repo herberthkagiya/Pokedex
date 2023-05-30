@@ -6,16 +6,20 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import coil.load
+import com.kagiya.pokedex.data.PokemonDetails
 import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getBackgroundColor
 import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getOutlineImage
 import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getTypeBackgroundColor
 import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getTypeImage
-import com.kagiya.pokedex.data.PokemonDetails
 import com.kagiya.pokedex.databinding.ListItemPokedexOneTypeBinding
 import com.kagiya.pokedex.databinding.ListItemPokedexTwoTypesBinding
 
 
-class PokedexAdapter(private val pokemonList: List<PokemonDetails>) : RecyclerView.Adapter<PokedexAdapter.PokemonHolder>() {
+class PokedexAdapter(
+    private val pokemonList: List<PokemonDetails>,
+    private val onPokemonClicked: (pokemonName: String) -> Unit
+) : RecyclerView.Adapter<PokedexAdapter.PokemonHolder>() {
+
 
     private val VIEW_ONE_POKEMON_TYPE = 0
     private val VIEW_TWO_POKEMON_TYPE = 1
@@ -37,10 +41,7 @@ class PokedexAdapter(private val pokemonList: List<PokemonDetails>) : RecyclerVi
     }
 
     override fun onBindViewHolder(holder: PokemonHolder, position: Int) {
-        when (holder){
-            is PokemonOneTypeHolder -> holder.bind(pokemonList[position])
-            is PokemonTwoTypesHolder -> holder.bind(pokemonList[position])
-        }
+        holder.bind(pokemonList[position], onPokemonClicked)
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -58,13 +59,16 @@ class PokedexAdapter(private val pokemonList: List<PokemonDetails>) : RecyclerVi
 
     abstract class PokemonHolder(binding: ViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        abstract fun bind(pokemon: PokemonDetails)
+        abstract fun bind(pokemon: PokemonDetails, onPokemonClicked: (pokemonName: String) -> Unit)
     }
 
-    inner class PokemonOneTypeHolder(private val binding: ListItemPokedexOneTypeBinding) :
-        PokemonHolder(binding) {
+    inner class PokemonOneTypeHolder(private val binding: ListItemPokedexOneTypeBinding) : PokemonHolder(binding) {
 
-        override fun bind(pokemon: PokemonDetails) {
+        override fun bind(pokemon: PokemonDetails, onPokemonClicked: (pokemonName: String) -> Unit) {
+
+            binding.root.setOnClickListener{
+                onPokemonClicked(pokemon.name)
+            }
 
             //Change pokedex item background color
             val rootBackgroundColor = getBackgroundColor(pokemon.types[0].type.name)
@@ -90,9 +94,13 @@ class PokedexAdapter(private val pokemonList: List<PokemonDetails>) : RecyclerVi
     }
 
 
-    inner class PokemonTwoTypesHolder(private val binding: ListItemPokedexTwoTypesBinding) :
-        PokemonHolder(binding) {
-        override fun bind(pokemon: PokemonDetails) {
+    inner class PokemonTwoTypesHolder(private val binding: ListItemPokedexTwoTypesBinding) : PokemonHolder(binding) {
+        override fun bind(pokemon: PokemonDetails, onPokemonClicked: (pokemonName: String) -> Unit) {
+
+            binding.root.setOnClickListener{
+                onPokemonClicked(pokemon.name)
+            }
+
             //Change pokedex item background color
             val rootBackgroundColor = getBackgroundColor(pokemon.types[0].type.name)
             binding.root.background.setTint(Color.parseColor(rootBackgroundColor))

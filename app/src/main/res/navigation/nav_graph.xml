@@ -2,22 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/pokedex_home">
-
+    app:startDestination="@id/pokedexFragment">
     <fragment
-        android:id="@+id/pokedex_home"
+        android:id="@+id/pokedexFragment"
         android:name="com.kagiya.pokedex.ui.PokedexFragment"
-        android:label="PokedexFragment" />
+        android:label="PokedexFragment" >
+        <action
+            android:id="@+id/show_pokemon_details"
+            app:destination="@id/pokemonDetailsFragment" />
+    </fragment>
     <fragment
-        android:id="@+id/regions"
-        android:name="com.kagiya.pokedex.ui.RegionsFragment"
-        android:label="RegionsFragment" />
-    <fragment
-        android:id="@+id/favorites"
-        android:name="com.kagiya.pokedex.ui.FavoritesFragment"
-        android:label="FavoritesFragment" />
-    <fragment
-        android:id="@+id/profile"
-        android:name="com.kagiya.pokedex.ui.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:id="@+id/pokemonDetailsFragment"
+        android:name="com.kagiya.pokedex.ui.PokemonDetailsFragment"
+        android:label="PokemonDetailsFragment" >
+        <argument
+            android:name="pokemonName"
+            app:argType="string" />
+    </fragment>
 </navigation>
