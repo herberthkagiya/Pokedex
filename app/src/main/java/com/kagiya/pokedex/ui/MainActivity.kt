@@ -19,43 +19,19 @@ class MainActivity : AppCompatActivity() {
 
         installSplashScreen()
 
-
-        if(isFirstTimeLaunchingTheApp()){
-            showOnboardingScreen()
-        }
-
+        setOnBoardingScreenIfNecessary()
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.bottomNavigationView.itemIconTintList = null
-
-
-        //Configuration of BottomNavigationMenu
-        val fragmentManager: FragmentManager = supportFragmentManager
-        val pokedexFragment = PokedexFragment()
-        val regionsFragment = RegionsFragment()
-        val favoritesFragment = FavoritesFragment()
-        val profileFragment = ProfileFragment()
-
-        binding.bottomNavigationView.setOnItemSelectedListener { item ->
-            var fragment: Fragment = PokedexFragment()
-
-            when (item.itemId) {
-                R.id.pokedex_home -> fragment = pokedexFragment
-                R.id.regions -> fragment = regionsFragment
-                R.id.favorites -> fragment = favoritesFragment
-                R.id.profile -> fragment = profileFragment
-            }
-            fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
-            true
-        }
-
-
-        // Set default BottomNavigationMenu Selection
-        binding.bottomNavigationView.selectedItemId = R.id.pokedex_home
     }
 
-    fun isFirstTimeLaunchingTheApp(): Boolean {
+    private fun setOnBoardingScreenIfNecessary(){
+        if(isFirstTimeLaunchingTheApp()){
+            showOnboardingScreen()
+        }
+    }
+
+    private fun isFirstTimeLaunchingTheApp(): Boolean {
         val preference = getSharedPreferences("USER_PREFERENCES", MODE_PRIVATE)
         return !preference.contains("ALREADY_SAW_ONBRANDING_SCREEN")
     }
@@ -63,6 +39,35 @@ class MainActivity : AppCompatActivity() {
     private fun showOnboardingScreen() {
         var intent = Intent(this@MainActivity, OnboardingActivity::class.java)
         startActivity(intent)
+    }
+
+    private fun setupBottomNavigationMenu(){
+//        binding.bottomNavigationView.itemIconTintList = null
+//
+//
+//        //Configuration of BottomNavigationMenu
+//        val fragmentManager: FragmentManager = supportFragmentManager
+//        val pokedexFragment = PokedexFragment()
+//        val regionsFragment = RegionsFragment()
+//        val favoritesFragment = FavoritesFragment()
+//        val profileFragment = ProfileFragment()
+//
+//        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+//            var fragment: Fragment = PokedexFragment()
+//
+//            when (item.itemId) {
+//                R.id.pokedex_home -> fragment = pokedexFragment
+//                R.id.regions -> fragment = regionsFragment
+//                R.id.favorites -> fragment = favoritesFragment
+//                R.id.profile -> fragment = profileFragment
+//            }
+//            fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
+//            true
+//        }
+//
+//
+//        // Set default BottomNavigationMenu Selection
+//        binding.bottomNavigationView.selectedItemId = R.id.pokedex_home
     }
 }
 

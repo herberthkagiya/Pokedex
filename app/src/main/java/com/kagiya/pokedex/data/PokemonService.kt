@@ -12,4 +12,7 @@ interface PokemonService {
 
     @GET("https://pokeapi.co/api/v2/pokemon/{name}/")
     suspend fun searchPokemon(@Path("name") name: String) : PokemonDetails
+
+    @GET("https://pokeapi.co/api/v2/pokemon-species/{name}")
+    suspend fun getPokemonDescription(@Path("name") name: String) : PokemonDescription
 }

@@ -30,4 +30,9 @@
     <string name="search_bar_hint">Procurar Pókemon</string>
 
 
+    <!--Pokemon Details titles-->
+    <string name="weight_title">PESO</string>
+    <string name="height_title">ALTURA</string>
+    <string name="category_title">CATEGORIA</string>
+    <string name="ability_title">HABILIDADE</string>
 </resources>
