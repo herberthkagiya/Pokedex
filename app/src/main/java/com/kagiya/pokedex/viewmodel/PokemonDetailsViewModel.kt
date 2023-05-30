@@ -3,6 +3,7 @@ package com.kagiya.pokedex.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.kagiya.pokedex.data.PokemonDescription
 import com.kagiya.pokedex.data.PokemonDetails
 import com.kagiya.pokedex.data.PokemonRepository
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -18,9 +19,13 @@ class PokemonDetailsViewModel(pokemonName: String) : ViewModel() {
     private val _pokemonDetails: MutableStateFlow<PokemonDetails?> = MutableStateFlow(null)
     val pokemonDetails: StateFlow<PokemonDetails?> = _pokemonDetails.asStateFlow()
 
+    private val _pokemonDescription: MutableStateFlow<PokemonDescription?> = MutableStateFlow(null)
+    val pokemonDescription: StateFlow<PokemonDescription?> = _pokemonDescription.asStateFlow()
+
     init{
         viewModelScope.launch {
             _pokemonDetails.value = pokemonRepository.searchPokemon(pokemonName)
+            _pokemonDescription.value = pokemonRepository.getPokemonDescription(pokemonName)
         }
     }
 }

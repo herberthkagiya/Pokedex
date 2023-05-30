@@ -137,29 +137,46 @@
         </LinearLayout>
 
 
+        <TextView
+            android:id="@+id/pokemon_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:fontFamily="@font/poppins"
+            android:textColor="#B3000000"
+            android:textSize="14sp"
+            android:justificationMode="inter_word"
+            app:layout_constraintBottom_toTopOf="@+id/line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/types_container"
+            tools:text="Ele cospe fogo que é quente o suficiente para derreter pedregulhos. Pode causar incêndios florestais soprando chamas." />
+
         <View
+            android:id="@+id/line"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
             android:background="#0D000000"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/types_container" />
+            app:layout_constraintTop_toBottomOf="@+id/pokemon_description" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/types_container">
+            app:layout_constraintTop_toBottomOf="@+id/line">
 
             <LinearLayout
                 android:id="@+id/linearLayout2"
@@ -174,6 +191,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawablePadding="7dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/weight_title"
                     android:textColor="#99000000"
@@ -207,6 +225,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawablePadding="7dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/height_title"
                     android:textColor="#99000000"
@@ -242,6 +261,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawablePadding="7dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/category_title"
                     android:textColor="#99000000"
@@ -275,6 +295,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:drawablePadding="7dp"
                     android:fontFamily="@font/poppins_medium"
                     android:text="@string/ability_title"
                     android:textColor="#99000000"
@@ -295,7 +316,6 @@
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

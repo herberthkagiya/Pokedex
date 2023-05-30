@@ -2,6 +2,7 @@ package com.kagiya.pokedex.ui
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
 import coil.load
 import com.kagiya.pokedex.R
+import com.kagiya.pokedex.data.PokemonDescription
 import com.kagiya.pokedex.data.PokemonDetails
 import com.kagiya.pokedex.databinding.FragmentPokemonDetailsBinding
 import com.kagiya.pokedex.viewmodel.PokemonDetailsViewModel
@@ -53,6 +55,16 @@ class PokemonDetailsFragment : Fragment(){
                 }
             }
         }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                pokemonDetailsViewModel.pokemonDescription.collect { description ->
+                    description ?.let{
+                        setPokemonDescriptionInDetails(description)
+                    }
+                }
+            }
+        }
     }
 
     private fun setPokemonDetails(pokemon: PokemonDetails){
@@ -71,10 +83,12 @@ class PokemonDetailsFragment : Fragment(){
         //Change outline pokemon type
         binding.pokemonOutline.setImageResource(BackgroundUtils.getOutlineImage(pokemonType1))
 
+
         setPokemonTypesInDetails(pokemon)
 
-        binding.pokemonWeight.text = (pokemon.weight / 100).toString() + "Kg"
-        binding.pokemonHeight.text = (pokemon.height / 10).toString() + " m"
+
+        binding.pokemonWeight.text = (pokemon.weight / 100.0).toString() + " Kg"
+        binding.pokemonHeight.text = (pokemon.height / 10.0).toString() + " m"
     }
 
     private fun setPokemonTypesInDetails(pokemon: PokemonDetails){
@@ -110,5 +124,9 @@ class PokemonDetailsFragment : Fragment(){
 
             binding.type2.removeAllViews()
         }
+    }
+
+    private fun setPokemonDescriptionInDetails(description: PokemonDescription){
+        binding.pokemonDescription.text = description.flavor_text_entries[0].flavor_text.replace("\n", " ")
     }
 }
