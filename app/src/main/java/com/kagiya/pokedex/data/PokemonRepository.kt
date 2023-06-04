@@ -44,4 +44,8 @@ class PokemonRepository {
     }
 
     suspend fun getPokemonDescription(name: String) : PokemonDescription = pokemonService.getPokemonDescription(name)
+
+    suspend fun getPokemonCategory(name: String) : PokemonCategory = pokemonService.getPokemonCategory(name)
+
+    suspend fun getPokemonWeaknesses(typeName: String) : Weaknesses = pokemonService.getPokemonWeaknesses(typeName)
 }

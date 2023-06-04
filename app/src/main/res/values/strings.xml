@@ -35,4 +35,5 @@
     <string name="height_title">ALTURA</string>
     <string name="category_title">CATEGORIA</string>
     <string name="ability_title">HABILIDADE</string>
+    <string name="weaknesses_title">Fraquezas</string>
 </resources>

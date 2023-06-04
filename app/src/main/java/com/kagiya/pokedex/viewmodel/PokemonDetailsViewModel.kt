@@ -3,9 +3,11 @@ package com.kagiya.pokedex.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.kagiya.pokedex.data.PokemonCategory
 import com.kagiya.pokedex.data.PokemonDescription
 import com.kagiya.pokedex.data.PokemonDetails
 import com.kagiya.pokedex.data.PokemonRepository
+import com.kagiya.pokedex.data.Weaknesses
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -19,13 +21,22 @@ class PokemonDetailsViewModel(pokemonName: String) : ViewModel() {
     private val _pokemonDetails: MutableStateFlow<PokemonDetails?> = MutableStateFlow(null)
     val pokemonDetails: StateFlow<PokemonDetails?> = _pokemonDetails.asStateFlow()
 
+
     private val _pokemonDescription: MutableStateFlow<PokemonDescription?> = MutableStateFlow(null)
     val pokemonDescription: StateFlow<PokemonDescription?> = _pokemonDescription.asStateFlow()
+
+    private val _pokemonCategory: MutableStateFlow<PokemonCategory?> = MutableStateFlow(null)
+    val pokemonCategory: StateFlow<PokemonCategory?> = _pokemonCategory.asStateFlow()
+
+    private val _pokemonWeaknesses: MutableStateFlow<Weaknesses?> = MutableStateFlow(null)
+    val pokemonWeaknesses: StateFlow<Weaknesses?> = _pokemonWeaknesses.asStateFlow()
 
     init{
         viewModelScope.launch {
             _pokemonDetails.value = pokemonRepository.searchPokemon(pokemonName)
             _pokemonDescription.value = pokemonRepository.getPokemonDescription(pokemonName)
+            _pokemonCategory.value = pokemonRepository.getPokemonCategory(pokemonName)
+            _pokemonWeaknesses.value = pokemonRepository.getPokemonWeaknesses(_pokemonDetails.value!!.types[0].type.name)
         }
     }
 }

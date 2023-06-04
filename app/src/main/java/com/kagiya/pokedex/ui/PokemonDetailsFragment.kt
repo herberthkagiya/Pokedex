@@ -12,8 +12,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
 import coil.load
 import com.kagiya.pokedex.R
+import com.kagiya.pokedex.data.PokemonCategory
 import com.kagiya.pokedex.data.PokemonDescription
 import com.kagiya.pokedex.data.PokemonDetails
 import com.kagiya.pokedex.databinding.FragmentPokemonDetailsBinding
@@ -46,6 +48,8 @@ class PokemonDetailsFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.weaknesses.layoutManager = GridLayoutManager(context, 2)
+
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 pokemonDetailsViewModel.pokemonDetails.collect { pokemon ->
@@ -61,6 +65,27 @@ class PokemonDetailsFragment : Fragment(){
                 pokemonDetailsViewModel.pokemonDescription.collect { description ->
                     description ?.let{
                         setPokemonDescriptionInDetails(description)
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                pokemonDetailsViewModel.pokemonCategory.collect { category ->
+                    category ?.let{
+                        setPokemonCategoryInDetails(category)
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                pokemonDetailsViewModel.pokemonWeaknesses.collect { weaknesses ->
+
+                    weaknesses?.let{
+                        binding.weaknesses.adapter = WeaknessesAdapter(weaknesses.damage_relations.double_damage_from)
                     }
                 }
             }
@@ -89,6 +114,7 @@ class PokemonDetailsFragment : Fragment(){
 
         binding.pokemonWeight.text = (pokemon.weight / 100.0).toString() + " Kg"
         binding.pokemonHeight.text = (pokemon.height / 10.0).toString() + " m"
+        binding.pokemonAbility.text = pokemon.abilities[0].ability.name.capitalize()
     }
 
     private fun setPokemonTypesInDetails(pokemon: PokemonDetails){
@@ -128,5 +154,9 @@ class PokemonDetailsFragment : Fragment(){
 
     private fun setPokemonDescriptionInDetails(description: PokemonDescription){
         binding.pokemonDescription.text = description.flavor_text_entries[0].flavor_text.replace("\n", " ")
+    }
+
+    private fun setPokemonCategoryInDetails(category: PokemonCategory){
+        binding.pokemonCategory.text = category.shape.name.capitalize()
     }
 }

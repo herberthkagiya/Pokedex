@@ -10,7 +10,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/pokemon_background"
@@ -49,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/poppins_medium"
-            android:textColor="#404040"
-            android:textSize="34sp"
+            android:textColor="#000000"
+            android:textSize="32sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokemon_image"
             tools:text="Charizard" />
@@ -62,7 +62,7 @@
             android:layout_marginStart="16dp"
             android:fontFamily="@font/poppins_medium"
             android:textColor="#B3000000"
-            android:textSize="14sp"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pokemon_name"
             tools:text="N° 006" />
@@ -85,8 +85,8 @@
                 android:background="@drawable/rounded_background"
                 android:gravity="center_horizontal|center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="4dp">
+                android:paddingHorizontal="13dp"
+                android:paddingVertical="5dp">
 
                 <ImageView
                     android:id="@+id/type_image_1"
@@ -113,8 +113,8 @@
                 android:background="@drawable/rounded_background"
                 android:gravity="center_horizontal|center_vertical"
                 android:orientation="horizontal"
-                android:paddingHorizontal="12dp"
-                android:paddingVertical="4dp">
+                android:paddingHorizontal="13dp"
+                android:paddingVertical="5dp">
 
                 <ImageView
                     android:id="@+id/type_image_2"
@@ -316,6 +316,31 @@
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/weaknesses_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/weaknesses"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

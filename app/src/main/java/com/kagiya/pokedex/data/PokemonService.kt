@@ -15,4 +15,10 @@ interface PokemonService {
 
     @GET("https://pokeapi.co/api/v2/pokemon-species/{name}")
     suspend fun getPokemonDescription(@Path("name") name: String) : PokemonDescription
+
+    @GET("https://pokeapi.co/api/v2/pokemon-species/{name}")
+    suspend fun getPokemonCategory(@Path("name") name: String) : PokemonCategory
+
+    @GET("https://pokeapi.co/api/v2/type/{typeName}")
+    suspend fun getPokemonWeaknesses(@Path("typeName") typename: String) : Weaknesses
 }
