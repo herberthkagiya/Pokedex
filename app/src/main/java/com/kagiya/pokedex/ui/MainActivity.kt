@@ -3,10 +3,12 @@ package com.kagiya.pokedex.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.activity.addCallback
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.ActivityMainBinding
@@ -25,8 +27,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setBottomNavigationMenu()
+        setupBottomNavigationMenu()
     }
+
 
     private fun setOnBoardingScreenIfNecessary(){
         if(isFirstTimeLaunchingTheApp()){
@@ -44,10 +47,18 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun setBottomNavigationMenu(){
+    private fun setupBottomNavigationMenu(){
         binding.bottomNavigationView.itemIconTintList = null
 
+        changeFragmentDependingOnMenuSelectedItem()
+
+        removeMenuDependingOnFragmentThatIsOnScreen()
+    }
+
+    private fun changeFragmentDependingOnMenuSelectedItem(){
+
         val bottomNavigationView = binding.bottomNavigationView
+
         bottomNavigationView.setOnItemSelectedListener { menuItem ->
             val navController = supportFragmentManager.findFragmentById(R.id.fragment_container)?.findNavController()
             when (menuItem.itemId) {
@@ -57,6 +68,20 @@ class MainActivity : AppCompatActivity() {
                 R.id.profile -> navController?.navigate(R.id.profileFragment)
             }
             true
+        }
+    }
+
+    private fun removeMenuDependingOnFragmentThatIsOnScreen(){
+
+        val bottomNavigationView = binding.bottomNavigationView
+        val navController = findNavController(R.id.fragment_container)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.pokemonDetailsFragment) {
+                bottomNavigationView.visibility = View.GONE
+            } else {
+                bottomNavigationView.visibility = View.VISIBLE
+            }
         }
     }
 }

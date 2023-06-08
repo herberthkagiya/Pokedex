@@ -32,4 +32,8 @@
         android:id="@+id/profileFragment"
         android:name="com.kagiya.pokedex.ui.ProfileFragment"
         android:label="ProfileFragment" />
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.kagiya.pokedex.ui.MainActivity"
+        android:label="MainActivity" />
 </navigation>
