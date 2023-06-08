@@ -9,7 +9,8 @@
         android:label="PokedexFragment" >
         <action
             android:id="@+id/show_pokemon_details"
-            app:destination="@id/pokemonDetailsFragment" />
+            app:destination="@id/pokemonDetailsFragment"
+            app:popUpToInclusive="@id/favoritesFragment"/>
     </fragment>
     <fragment
         android:id="@+id/pokemonDetailsFragment"
@@ -19,4 +20,16 @@
             android:name="pokemonName"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/regionsFragment"
+        android:name="com.kagiya.pokedex.ui.RegionsFragment"
+        android:label="RegionsFragment" />
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.kagiya.pokedex.ui.FavoritesFragment"
+        android:label="FavoritesFragment" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.kagiya.pokedex.ui.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>

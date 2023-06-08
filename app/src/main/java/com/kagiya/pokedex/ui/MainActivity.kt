@@ -7,6 +7,7 @@ import androidx.activity.addCallback
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.ActivityMainBinding
 
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setBottomNavigationMenu()
     }
 
     private fun setOnBoardingScreenIfNecessary(){
@@ -41,33 +44,20 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun setupBottomNavigationMenu(){
-//        binding.bottomNavigationView.itemIconTintList = null
-//
-//
-//        //Configuration of BottomNavigationMenu
-//        val fragmentManager: FragmentManager = supportFragmentManager
-//        val pokedexFragment = PokedexFragment()
-//        val regionsFragment = RegionsFragment()
-//        val favoritesFragment = FavoritesFragment()
-//        val profileFragment = ProfileFragment()
-//
-//        binding.bottomNavigationView.setOnItemSelectedListener { item ->
-//            var fragment: Fragment = PokedexFragment()
-//
-//            when (item.itemId) {
-//                R.id.pokedex_home -> fragment = pokedexFragment
-//                R.id.regions -> fragment = regionsFragment
-//                R.id.favorites -> fragment = favoritesFragment
-//                R.id.profile -> fragment = profileFragment
-//            }
-//            fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).commit()
-//            true
-//        }
-//
-//
-//        // Set default BottomNavigationMenu Selection
-//        binding.bottomNavigationView.selectedItemId = R.id.pokedex_home
+    private fun setBottomNavigationMenu(){
+        binding.bottomNavigationView.itemIconTintList = null
+
+        val bottomNavigationView = binding.bottomNavigationView
+        bottomNavigationView.setOnItemSelectedListener { menuItem ->
+            val navController = supportFragmentManager.findFragmentById(R.id.fragment_container)?.findNavController()
+            when (menuItem.itemId) {
+                R.id.pokedex_home -> navController?.navigate(R.id.pokedexFragment)
+                R.id.regions -> navController?.navigate(R.id.regionsFragment)
+                R.id.favorites -> navController?.navigate(R.id.favoritesFragment)
+                R.id.profile -> navController?.navigate(R.id.profileFragment)
+            }
+            true
+        }
     }
 }
 

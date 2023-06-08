@@ -34,6 +34,9 @@ class PokemonDetailsFragment : Fragment(){
         PokemonDetailsViewModelFactory(args.pokemonName)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,6 +50,8 @@ class PokemonDetailsFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         binding.weaknesses.layoutManager = GridLayoutManager(context, 2)
 

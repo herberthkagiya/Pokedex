@@ -19,7 +19,7 @@ import kotlinx.coroutines.launch
 
 private const val TAG = "PokedexFragment"
 
-class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
+class PokedexFragment : Fragment() {
 
     private val pokedexViewModel : PokedexViewModel by viewModels()
 
@@ -51,13 +51,12 @@ class PokedexFragment : Fragment(R.layout.fragment_pokedex) {
 
 
         viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                pokedexViewModel.pokemonDetails.collect { details ->
-                    binding.pokedexList.adapter = PokedexAdapter(details){pokemonName ->
-                        findNavController().navigate(
-                            PokedexFragmentDirections.showPokemonDetails(pokemonName)
-                        )
-                    }
+
+            pokedexViewModel.pokemonDetails.collect { details ->
+                binding.pokedexList.adapter = PokedexAdapter(details){ pokemonName ->
+                    findNavController().navigate(
+                        PokedexFragmentDirections.showPokemonDetails(pokemonName)
+                    )
                 }
             }
         }

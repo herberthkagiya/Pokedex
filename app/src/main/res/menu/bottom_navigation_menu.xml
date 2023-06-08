@@ -2,7 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/pokedex_home"
-        android:color="@color/buttonsAndMenu"
         android:title="@string/pokedex_home_button"
         android:icon="@drawable/selector_pokedex_home" />
 
