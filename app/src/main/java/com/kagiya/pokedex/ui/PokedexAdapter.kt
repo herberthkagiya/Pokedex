@@ -2,15 +2,12 @@ package com.kagiya.pokedex.ui
 
 import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import coil.load
 import com.kagiya.pokedex.data.PokemonDetails
-import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getBackgroundColor
-import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getOutlineImage
-import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getTypeBackgroundColor
-import com.kagiya.pokedex.ui.BackgroundUtils.Companion.getTypeImage
 import com.kagiya.pokedex.databinding.ListItemPokedexOneTypeBinding
 import com.kagiya.pokedex.databinding.ListItemPokedexTwoTypesBinding
 
@@ -70,26 +67,35 @@ class PokedexAdapter(
                 onPokemonClicked(pokemon.name)
             }
 
-            //Change pokedex item background color
-            val rootBackgroundColor = getBackgroundColor(pokemon.types[0].type.name)
-            binding.root.background.setTint(Color.parseColor(rootBackgroundColor))
-
-
             binding.pokemonId.text = "N°" + pokemon.id.toString().padStart(3, '0')
             binding.pokemonName.text = pokemon.name.capitalize()
-            binding.pokemonImage.load(pokemon.sprites.front_default)
 
-            //Show pokemon type
+            setupBackgroundColorAndImagesInPokemonCard(pokemon)
+
+            setupPokemonTypesInPokemonCard(pokemon)
+        }
+
+        private fun setupBackgroundColorAndImagesInPokemonCard(pokemon: PokemonDetails){
+
+            val firstPokemonType = pokemon.types[0].type.name
+            val backgroundProperties = BackgroundUtils.getBackgroundProperties(firstPokemonType)
+
+            binding.root.background.setTint(Color.parseColor(backgroundProperties.cardBackgroundColor))
+            binding.pokemonOutline.background.setTint(Color.parseColor(backgroundProperties.typeBackgroundColor))
+            binding.pokemonOutline.setImageResource(backgroundProperties.outlineImage)
+            binding.pokemonImage.load(pokemon.sprites.front_default)
+        }
+
+        private fun setupPokemonTypesInPokemonCard(pokemon: PokemonDetails){
+
             val pokemonType =  pokemon.types[0].type.name
             binding.typeName.text = pokemonType.capitalize()
-            val typeBackgroundColor = getTypeBackgroundColor(pokemonType)
-            binding.type.background.setTint(Color.parseColor(typeBackgroundColor))
-            val pokemonTypeImage = getTypeImage(pokemonType)
-            binding.typeImage.setImageResource(pokemonTypeImage)
 
-            //Change outline of pokemon image
-            binding.pokemonOutline.background.setTint(Color.parseColor(typeBackgroundColor))
-            binding.pokemonOutline.setImageResource(getOutlineImage(pokemonType))
+            val backgroungProperties = BackgroundUtils.getBackgroundProperties(pokemonType)
+
+            binding.type.background.setTint(Color.parseColor(backgroungProperties.typeBackgroundColor))
+
+            binding.typeImage.setImageResource(backgroungProperties.typeImage)
         }
     }
 
@@ -101,34 +107,50 @@ class PokedexAdapter(
                 onPokemonClicked(pokemon.name)
             }
 
-            //Change pokedex item background color
-            val rootBackgroundColor = getBackgroundColor(pokemon.types[0].type.name)
-            binding.root.background.setTint(Color.parseColor(rootBackgroundColor))
-
             binding.pokemonId.text = "N°" + pokemon.id.toString().padStart(3, '0')
             binding.pokemonName.text = pokemon.name.capitalize()
+
+            setupBackgroundColorAndImagesInPokemonCard(pokemon)
+
+            setupPokemonTypesInPokemonCard(pokemon)
+        }
+
+        private fun setupBackgroundColorAndImagesInPokemonCard(pokemon: PokemonDetails){
+
+            val firstPokemonType = pokemon.types[0].type.name
+            val backgroundProperties = BackgroundUtils.getBackgroundProperties(firstPokemonType)
+
+            binding.root.background.setTint(Color.parseColor(backgroundProperties.cardBackgroundColor))
+            binding.pokemonOutline.background.setTint(Color.parseColor(backgroundProperties.typeBackgroundColor))
+            binding.pokemonOutline.setImageResource(backgroundProperties.outlineImage)
             binding.pokemonImage.load(pokemon.sprites.front_default)
+        }
 
-            //Show first pokemon types
-            val pokemonType1 =  pokemon.types[0].type.name
-            binding.typeName1.text = pokemonType1.capitalize()
-            val typeBackgroundColor1 = getTypeBackgroundColor(pokemonType1)
-            binding.type1.background.setTint(Color.parseColor(typeBackgroundColor1))
-            val pokemonTypeImage1 = getTypeImage(pokemonType1)
-            binding.typeImage1.setImageResource(pokemonTypeImage1)
+        private fun setupPokemonTypesInPokemonCard(pokemon: PokemonDetails){
+
+            //Show first pokemon type
+            val firstPokemonType =  pokemon.types[0].type.name
+            binding.typeName1.text = firstPokemonType.capitalize()
+
+            var backgroungProperties = BackgroundUtils.getBackgroundProperties(firstPokemonType)
+
+            binding.type1.background.setTint(Color.parseColor(backgroungProperties.typeBackgroundColor))
+
+            binding.typeImage1.setImageResource(backgroungProperties.typeImage)
 
 
-            //Show second pokemon type
-            val pokemonType2 =  pokemon.types[1].type.name
-            binding.typeName2.text = pokemonType2.capitalize()
-            val typeBackgroundColor2 = getTypeBackgroundColor(pokemonType2)
-            binding.type2.background.setTint(Color.parseColor(typeBackgroundColor2))
-            val pokemonTypeImage2 = getTypeImage(pokemonType2)
-            binding.typeImage2.setImageResource(pokemonTypeImage2)
 
-            //Change outline of pokemon image
-            binding.pokemonOutline.background.setTint(Color.parseColor(typeBackgroundColor1))
-            binding.pokemonOutline.setImageResource(getOutlineImage(pokemonType1))
+
+            //Show first pokemon type
+            val secondPokemonType =  pokemon.types[1].type.name
+            binding.typeName2.text = secondPokemonType.capitalize()
+
+            backgroungProperties = BackgroundUtils.getBackgroundProperties(secondPokemonType)
+
+            binding.type2.background.setTint(Color.parseColor(backgroungProperties.typeBackgroundColor))
+
+            binding.typeImage2.setImageResource(backgroungProperties.typeImage)
         }
     }
+
 }

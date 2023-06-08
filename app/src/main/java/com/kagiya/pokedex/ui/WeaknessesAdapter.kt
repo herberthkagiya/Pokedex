@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kagiya.pokedex.data.DoubleDamageFrom
 import com.kagiya.pokedex.databinding.ListItemWeaknessesBinding
+import kotlinx.coroutines.flow.callbackFlow
 
 class WeaknessesAdapter(private val weaknessesList: List<DoubleDamageFrom>) :
     RecyclerView.Adapter<WeaknessesAdapter.WeaknessViewHolder>() {
@@ -17,13 +18,13 @@ class WeaknessesAdapter(private val weaknessesList: List<DoubleDamageFrom>) :
 
         fun bind(weakness: DoubleDamageFrom) {
 
-            //Show pokemon type
+
             val weaknessName = weakness.name
             binding.typeName.text = weaknessName.capitalize()
-            val typeBackgroundColor = BackgroundUtils.getTypeBackgroundColor(weaknessName)
-            binding.type.background.setTint(Color.parseColor(typeBackgroundColor))
-            val pokemonTypeImage = BackgroundUtils.getTypeImage(weaknessName)
-            binding.typeImage.setImageResource(pokemonTypeImage)
+
+            val backgroundProperties = BackgroundUtils.getBackgroundProperties(weaknessName)
+            binding.type.background.setTint(Color.parseColor(backgroundProperties.typeBackgroundColor))
+            binding.typeImage.setImageResource(backgroundProperties.typeImage)
         }
     }
 
