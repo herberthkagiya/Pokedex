@@ -3,7 +3,7 @@ package com.kagiya.pokedex.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kagiya.pokedex.data.PokemonRepository
+import com.kagiya.pokedex.PokemonRepository
 import com.kagiya.pokedex.data.Pokemon
 import com.kagiya.pokedex.data.PokemonDetails
 import kotlinx.coroutines.flow.MutableStateFlow

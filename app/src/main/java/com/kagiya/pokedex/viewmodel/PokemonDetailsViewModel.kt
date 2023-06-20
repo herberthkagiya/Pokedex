@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.kagiya.pokedex.data.PokemonCategory
 import com.kagiya.pokedex.data.PokemonDescription
 import com.kagiya.pokedex.data.PokemonDetails
-import com.kagiya.pokedex.data.PokemonRepository
+import com.kagiya.pokedex.PokemonRepository
 import com.kagiya.pokedex.data.Weaknesses
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

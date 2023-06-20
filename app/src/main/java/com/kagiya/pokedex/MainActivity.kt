@@ -1,17 +1,14 @@
-package com.kagiya.pokedex.ui
+package com.kagiya.pokedex
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.activity.addCallback
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.ActivityMainBinding
+import com.kagiya.pokedex.ui.OnboardingActivity
 
 class MainActivity : AppCompatActivity() {
 

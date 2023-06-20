@@ -36,4 +36,9 @@
     <string name="category_title">CATEGORIA</string>
     <string name="ability_title">HABILIDADE</string>
     <string name="weaknesses_title">Fraquezas</string>
+
+    <!--Regions-->
+    <string name="regions_title">Regiões</string>
+    <string name="kanto_title">Kanto</string>
+    <string name="first_generation_title">1° GERAÇÃO</string>
 </resources>
