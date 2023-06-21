@@ -41,4 +41,18 @@
     <string name="regions_title">Regiões</string>
     <string name="kanto_title">Kanto</string>
     <string name="first_generation_title">1° GERAÇÃO</string>
+    <string name="johto_title">Johto</string>
+    <string name="second_generation_title">2° GERAÇÃO</string>
+    <string name="hoenn_title">Hoenn</string>
+    <string name="third_generation_title">3° GERAÇÃO</string>
+    <string name="sinnoh_title">Sinnoh</string>
+    <string name="fourth_generation_title">4° GERAÇÃO</string>
+    <string name="unova_title">Unova</string>
+    <string name="fifth_generation_title">5° GERAÇÃO</string>
+    <string name="kalos_title">Kalos</string>
+    <string name="sixth_generation_title">6° GERAÇÃO</string>
+    <string name="alola_title">Alola</string>
+    <string name="seventh_generation_title">7° GERAÇÃO</string>
+    <string name="galar_title">Galar</string>
+    <string name="eighth_generation_title">8° GERAÇÃO</string>
 </resources>
