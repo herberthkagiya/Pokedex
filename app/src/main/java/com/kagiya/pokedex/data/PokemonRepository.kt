@@ -1,16 +1,12 @@
-package com.kagiya.pokedex
+package com.kagiya.pokedex.data
 
-import com.kagiya.pokedex.data.Pokemon
-import com.kagiya.pokedex.data.PokemonCategory
-import com.kagiya.pokedex.data.PokemonDescription
-import com.kagiya.pokedex.data.PokemonDetails
-import com.kagiya.pokedex.data.PokemonService
-import com.kagiya.pokedex.data.Weaknesses
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 import java.util.concurrent.TimeUnit
+
+private const val BASE_URL = "https://pokeapi.co/api/v2/"
 
 
 class PokemonRepository {
@@ -25,7 +21,7 @@ class PokemonRepository {
             .build()
 
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://pokeapi.co/api/v2/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
             .build()

@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.addCallback
-import com.kagiya.pokedex.MainActivity
 import com.kagiya.pokedex.databinding.ActivityLoginRegisterOnboardingBinding
 
 class LoginRegisterOnboarding : AppCompatActivity() {

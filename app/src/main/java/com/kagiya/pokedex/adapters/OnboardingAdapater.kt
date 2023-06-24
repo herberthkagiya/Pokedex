@@ -1,9 +1,10 @@
-package com.kagiya.pokedex.ui
+package com.kagiya.pokedex.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.kagiya.pokedex.databinding.ItemOnboardingBinding
+import com.kagiya.pokedex.ui.OnboardingItem
 
 
 class OnboardingHolder(val binding: ItemOnboardingBinding) : RecyclerView.ViewHolder(binding.root){

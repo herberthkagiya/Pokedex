@@ -3,7 +3,7 @@ package com.kagiya.pokedex.viewmodel
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.kagiya.pokedex.PokemonRepository
+import com.kagiya.pokedex.data.PokemonRepository
 import com.kagiya.pokedex.data.Pokemon
 import com.kagiya.pokedex.data.PokemonDetails
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,13 +13,14 @@ import kotlinx.coroutines.launch
 
 
 private const val TAG = "PokedexViewModel"
+private const val QUERY_PAGE_SIZE = 10
 
 class PokedexViewModel : ViewModel() {
 
-    private val _pokemons: MutableStateFlow<List<Pokemon>> = MutableStateFlow(emptyList())
-    val pokemons: StateFlow<List<Pokemon>>
-        get() = _pokemons.asStateFlow()
+    var pokemonPage = -10
 
+
+    private val pokemons: MutableStateFlow<List<Pokemon>> = MutableStateFlow(emptyList())
 
     private val _pokemonDetails: MutableStateFlow<List<PokemonDetails>> = MutableStateFlow(emptyList())
     val pokemonDetails: StateFlow<List<PokemonDetails>>
@@ -29,9 +30,7 @@ class PokedexViewModel : ViewModel() {
     init {
         viewModelScope.launch {
             try {
-                val response = PokemonRepository().fetchPokemonList(0, 10)
-                _pokemons.value = response
-                _pokemonDetails.value = PokemonRepository().getPokemonDetails(_pokemons.value)
+                getPokemonDetails()
             }
             catch (ex: Exception) {
                 Log.d(TAG, "Loading pokemons error", ex)
@@ -39,6 +38,15 @@ class PokedexViewModel : ViewModel() {
         }
     }
 
+    fun getPokemonDetails(){
+        viewModelScope.launch {
+            pokemonPage += 10
+
+            val response = PokemonRepository().fetchPokemonList(pokemonPage, 10)
+            pokemons.value = response
+            _pokemonDetails.value += PokemonRepository().getPokemonDetails(pokemons.value)
+        }
+    }
 
     fun setQuery(query : String){
         viewModelScope.launch{
@@ -59,7 +67,7 @@ class PokedexViewModel : ViewModel() {
         }
         else{
             Log.d(TAG, "Query empty")
-            PokemonRepository().getPokemonDetails(_pokemons.value)
+            PokemonRepository().getPokemonDetails(pokemons.value)
         }
     }
 

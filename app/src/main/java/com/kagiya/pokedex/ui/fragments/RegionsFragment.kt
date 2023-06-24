@@ -1,4 +1,4 @@
-package com.kagiya.pokedex.ui
+package com.kagiya.pokedex.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,8 +1,7 @@
-package com.kagiya.pokedex.ui
+package com.kagiya.pokedex.ui.fragments
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,11 +14,13 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import coil.load
 import com.kagiya.pokedex.R
+import com.kagiya.pokedex.adapters.WeaknessesAdapter
 import com.kagiya.pokedex.data.PokemonCategory
 import com.kagiya.pokedex.data.PokemonDescription
 import com.kagiya.pokedex.data.PokemonDetails
 import com.kagiya.pokedex.data.Weaknesses
 import com.kagiya.pokedex.databinding.FragmentPokemonDetailsBinding
+import com.kagiya.pokedex.util.BackgroundUtils
 import com.kagiya.pokedex.viewmodel.PokemonDetailsViewModel
 import com.kagiya.pokedex.viewmodel.PokemonDetailsViewModelFactory
 import kotlinx.coroutines.launch

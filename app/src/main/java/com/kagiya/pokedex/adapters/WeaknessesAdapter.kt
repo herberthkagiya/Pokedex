@@ -1,14 +1,12 @@
-package com.kagiya.pokedex.ui
+package com.kagiya.pokedex.adapters
 
 import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kagiya.pokedex.data.DoubleDamageFrom
 import com.kagiya.pokedex.databinding.ListItemWeaknessesBinding
-import kotlinx.coroutines.flow.callbackFlow
+import com.kagiya.pokedex.util.BackgroundUtils
 
 class WeaknessesAdapter(private val weaknessesList: List<DoubleDamageFrom>) :
     RecyclerView.Adapter<WeaknessesAdapter.WeaknessViewHolder>() {

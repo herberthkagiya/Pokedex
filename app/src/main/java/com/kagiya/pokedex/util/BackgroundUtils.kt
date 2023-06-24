@@ -1,4 +1,4 @@
-package com.kagiya.pokedex.ui
+package com.kagiya.pokedex.util
 
 import com.kagiya.pokedex.R
 

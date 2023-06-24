@@ -5,7 +5,7 @@
     app:startDestination="@id/pokedexFragment">
     <fragment
         android:id="@+id/pokedexFragment"
-        android:name="com.kagiya.pokedex.ui.PokedexFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.PokedexFragment"
         android:label="PokedexFragment" >
         <action
             android:id="@+id/show_pokemon_details"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/pokemonDetailsFragment"
-        android:name="com.kagiya.pokedex.ui.PokemonDetailsFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.PokemonDetailsFragment"
         android:label="PokemonDetailsFragment" >
         <argument
             android:name="pokemonName"
@@ -22,18 +22,18 @@
     </fragment>
     <fragment
         android:id="@+id/regionsFragment"
-        android:name="com.kagiya.pokedex.ui.RegionsFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.RegionsFragment"
         android:label="RegionsFragment" />
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.kagiya.pokedex.ui.FavoritesFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.FavoritesFragment"
         android:label="FavoritesFragment" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.kagiya.pokedex.ui.ProfileFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.ProfileFragment"
         android:label="ProfileFragment" />
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.kagiya.pokedex.MainActivity"
+        android:name="com.kagiya.pokedex.ui.MainActivity"
         android:label="MainActivity" />
 </navigation>

@@ -1,8 +1,7 @@
-package com.kagiya.pokedex.ui
+package com.kagiya.pokedex.adapters
 
 import android.graphics.Color
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
@@ -10,16 +9,16 @@ import coil.load
 import com.kagiya.pokedex.data.PokemonDetails
 import com.kagiya.pokedex.databinding.ListItemPokedexOneTypeBinding
 import com.kagiya.pokedex.databinding.ListItemPokedexTwoTypesBinding
+import com.kagiya.pokedex.util.BackgroundUtils
 
+private const val VIEW_ONE_POKEMON_TYPE = 0
+private const val VIEW_TWO_POKEMON_TYPE = 1
 
 class PokedexAdapter(
-    private val pokemonList: List<PokemonDetails>,
+    private var pokemonList: List<PokemonDetails>,
     private val onPokemonClicked: (pokemonName: String) -> Unit
 ) : RecyclerView.Adapter<PokedexAdapter.PokemonHolder>() {
 
-
-    private val VIEW_ONE_POKEMON_TYPE = 0
-    private val VIEW_TWO_POKEMON_TYPE = 1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -53,9 +52,12 @@ class PokedexAdapter(
         return pokemonList.size
     }
 
+    fun updateData(newPokemonList: List<PokemonDetails>) {
+        pokemonList = newPokemonList
+        notifyDataSetChanged()
+    }
 
-    abstract class PokemonHolder(binding: ViewBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    abstract class PokemonHolder(binding: ViewBinding) : RecyclerView.ViewHolder(binding.root) {
         abstract fun bind(pokemon: PokemonDetails, onPokemonClicked: (pokemonName: String) -> Unit)
     }
 
@@ -152,5 +154,6 @@ class PokedexAdapter(
             binding.typeImage2.setImageResource(backgroungProperties.typeImage)
         }
     }
+
 
 }
