@@ -15,7 +15,6 @@
     <string name="login_register_title">Está pronto para essa aventura?</string>
 
 
-
     <!--Descriptions-->
     <string name="first_slide_desc">Acesse uma vasta lista de Pokémon de todas as gerações já feitas pela Nintendo</string>
     <string name="second_slide_desc">Cadastre-se e mantenha seu perfil, pokémon favoritos, configurações e muito mais, salvos no aplicativo, mesmo sem conexão com a internet.</string>
@@ -55,4 +54,14 @@
     <string name="seventh_generation_title">7° GERAÇÃO</string>
     <string name="galar_title">Galar</string>
     <string name="eighth_generation_title">8° GERAÇÃO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    
+    <!--Login/Registration-->
+    <string name="create_account_title">Criar conta</string>
+    <string name="create_account_encouragement_text">Falta pouco para \n explorar esse mundo!</string>
+    <string name="create_account_method_text">Como deseja se conectar?</string>
+    <string name="continue_with_apple">Continuar com a Apple</string>
+    <string name="continue_with_google">Continuar com o Google</string>
+    <string name="continue_with_email">Continuar com um Email</string>
 </resources>

@@ -3,6 +3,7 @@ package com.kagiya.pokedex.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.view.View
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.findNavController
@@ -10,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.ActivityMainBinding
 
+private const val ALREADY_SAW_ONBOARDING_SCREEN = "ALREADY_SAW_ONBOARDING_SCREEN"
+private const val USER_PREFERENCES = "USER_PREFERENCES"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -19,10 +22,10 @@ class MainActivity : AppCompatActivity() {
 
         installSplashScreen()
 
-        setOnBoardingScreenIfNecessary()
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setOnBoardingScreenIfNecessary()
 
         setupBottomNavigationMenu()
     }
@@ -35,13 +38,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun isFirstTimeLaunchingTheApp(): Boolean {
-        val preference = getSharedPreferences("USER_PREFERENCES", MODE_PRIVATE)
-        return !preference.contains("ALREADY_SAW_ONBRANDING_SCREEN")
+        val preference = PreferenceManager.getDefaultSharedPreferences(this)
+        return !preference.contains(ALREADY_SAW_ONBOARDING_SCREEN)
     }
 
     private fun showOnboardingScreen() {
-        var intent = Intent(this@MainActivity, OnboardingActivity::class.java)
-        startActivity(intent)
+        val navController = supportFragmentManager.findFragmentById(R.id.fragment_container)?.findNavController()
+
+        navController?.navigate(R.id.onboardingFragment)
     }
 
     private fun setupBottomNavigationMenu(){
@@ -74,10 +78,11 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.fragment_container)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.pokemonDetailsFragment) {
-                bottomNavigationView.visibility = View.GONE
-            } else {
-                bottomNavigationView.visibility = View.VISIBLE
+            when (destination.id){
+                R.id.pokemonDetailsFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.onboardingFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.loginAndRegisterOnboardingFragment -> bottomNavigationView.visibility = View.GONE
+                else ->  bottomNavigationView.visibility = View.VISIBLE
             }
         }
     }

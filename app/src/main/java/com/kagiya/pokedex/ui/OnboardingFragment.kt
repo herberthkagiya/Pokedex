@@ -1,35 +1,39 @@
 package com.kagiya.pokedex.ui
 
+import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences.Editor
 import android.os.Bundle
-import androidx.activity.addCallback
-import androidx.appcompat.app.AppCompatActivity
+import android.preference.PreferenceManager
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.adapters.OnboardingAdapater
-import com.kagiya.pokedex.databinding.ActivityOnboardingBinding
+import com.kagiya.pokedex.databinding.FragmentOnboardingBinding
 
 
-private const val ALREADY_SAW_ONBRANDING_SCREEN = "ALREADY_SAW_ONBRANDING_SCREEN"
+private const val ALREADY_SAW_ONBOARDING_SCREEN = "ALREADY_SAW_ONBOARDING_SCREEN"
 private const val USER_PREFERENCES = "USER_PREFERENCES"
 
-class OnboardingActivity : AppCompatActivity() {
+class OnboardingFragment : Fragment() {
 
-    private lateinit var binding: ActivityOnboardingBinding
+    private lateinit var binding: FragmentOnboardingBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-        binding = ActivityOnboardingBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentOnboardingBinding.inflate(layoutInflater, container, false)
 
         setOnboardingItems()
 
         binding.dotsIndicator.attachTo(binding.slider)
 
-        //Disable the back button
-        onBackPressedDispatcher.addCallback(this) {
-        }
+        return binding.root
     }
 
     private fun setOnboardingItems(){
@@ -50,22 +54,18 @@ class OnboardingActivity : AppCompatActivity() {
                 R.string.second_slide_desc,
                 R.string.let_get_started_button
             ) {
-                val preferences = getSharedPreferences(USER_PREFERENCES, MODE_PRIVATE)
+                val preferences = PreferenceManager.getDefaultSharedPreferences(context)
                 val editor: Editor = preferences.edit()
-                editor.putBoolean(ALREADY_SAW_ONBRANDING_SCREEN, true)
+                editor.putBoolean(ALREADY_SAW_ONBOARDING_SCREEN, true)
                 editor.apply()
 
-//                val intent = Intent(this, LoginRegisterOnboarding::class.java)
-//                startActivity(intent)
-
-                finish()
+                findNavController().navigate(
+                    R.id.show_login_and_create_account
+                )
             }
         )
 
         val adapter = OnboardingAdapater(onboardingItems)
         binding.slider.adapter = adapter
     }
-
-
-
 }

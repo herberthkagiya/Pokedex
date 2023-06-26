@@ -17,6 +17,7 @@
     </style>
 
     <style name="Theme.Pokedex.Buttons">
+        <item  name="android:elevation">0dp</item>
         <item name="android:background">@drawable/rounded_background</item>
         <item name="android:backgroundTint">@color/buttonsAndMenu</item>
         <item name="colorAccent">@color/buttonsAndMenu</item>

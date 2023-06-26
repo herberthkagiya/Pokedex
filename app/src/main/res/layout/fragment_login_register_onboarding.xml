@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.LoginRegisterOnboarding"
+    tools:context=".ui.fragments.LoginAndRegisterOnboardingFragment"
     android:padding="20dp">
 
     <Button
@@ -70,7 +70,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/onboarding_button"
+        android:id="@+id/create_account_button"
         style="@style/Theme.Pokedex.Buttons"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

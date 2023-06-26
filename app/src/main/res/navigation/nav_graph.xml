@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/pokedexFragment">
     <fragment
@@ -36,4 +37,28 @@
         android:id="@+id/mainActivity"
         android:name="com.kagiya.pokedex.ui.MainActivity"
         android:label="MainActivity" />
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.RegistrationFragment"
+        android:label="RegistrationFragment" />
+    <fragment
+        android:id="@+id/loginAndRegisterOnboardingFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.LoginAndRegisterOnboardingFragment"
+        android:label="activity_login_register_onboarding"
+        tools:layout="@layout/fragment_login_register_onboarding" >
+        <action
+            android:id="@+id/skip_registration"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/create_account"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.kagiya.pokedex.ui.OnboardingFragment"
+        android:label="OnboardingFragment" >
+        <action
+            android:id="@+id/show_login_and_create_account"
+            app:destination="@id/loginAndRegisterOnboardingFragment" />
+    </fragment>
 </navigation>
