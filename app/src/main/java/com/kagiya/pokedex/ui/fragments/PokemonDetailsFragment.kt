@@ -15,14 +15,14 @@ import androidx.recyclerview.widget.GridLayoutManager
 import coil.load
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.adapters.WeaknessesAdapter
-import com.kagiya.pokedex.data.PokemonCategory
-import com.kagiya.pokedex.data.PokemonDescription
-import com.kagiya.pokedex.data.PokemonDetails
-import com.kagiya.pokedex.data.Weaknesses
+import com.kagiya.pokedex.models.PokemonCategory
+import com.kagiya.pokedex.models.PokemonDescription
+import com.kagiya.pokedex.models.PokemonDetails
+import com.kagiya.pokedex.models.Weaknesses
 import com.kagiya.pokedex.databinding.FragmentPokemonDetailsBinding
 import com.kagiya.pokedex.util.BackgroundUtils
-import com.kagiya.pokedex.viewmodel.PokemonDetailsViewModel
-import com.kagiya.pokedex.viewmodel.PokemonDetailsViewModelFactory
+import com.kagiya.pokedex.viewmodels.PokemonDetailsViewModel
+import com.kagiya.pokedex.viewmodels.PokemonDetailsViewModelFactory
 import kotlinx.coroutines.launch
 
 const val ONE_POKEMON_TYPE = 1

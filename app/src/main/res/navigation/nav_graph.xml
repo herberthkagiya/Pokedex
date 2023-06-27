@@ -38,10 +38,6 @@
         android:name="com.kagiya.pokedex.ui.MainActivity"
         android:label="MainActivity" />
     <fragment
-        android:id="@+id/registrationFragment"
-        android:name="com.kagiya.pokedex.ui.fragments.RegistrationFragment"
-        android:label="RegistrationFragment" />
-    <fragment
         android:id="@+id/loginAndRegisterOnboardingFragment"
         android:name="com.kagiya.pokedex.ui.fragments.LoginAndRegisterOnboardingFragment"
         android:label="activity_login_register_onboarding"
@@ -55,10 +51,55 @@
     </fragment>
     <fragment
         android:id="@+id/onboardingFragment"
-        android:name="com.kagiya.pokedex.ui.OnboardingFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.OnboardingFragment"
         android:label="OnboardingFragment" >
         <action
             android:id="@+id/show_login_and_create_account"
             app:destination="@id/loginAndRegisterOnboardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailRegistrationFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.EmailRegistrationFragment"
+        android:label="fragment_email_registration"
+        tools:layout="@layout/fragment_email_registration" >
+        <action
+            android:id="@+id/register_password"
+            app:destination="@id/passwordRegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" >
+        <action
+            android:id="@+id/register_account_with_email"
+            app:destination="@id/emailRegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/passwordRegistrationFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.PasswordRegistrationFragment"
+        android:label="fragment_password_registration"
+        tools:layout="@layout/fragment_password_registration" >
+        <action
+            android:id="@+id/register_username"
+            app:destination="@id/usernameRegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usernameRegistrationFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.UsernameRegistrationFragment"
+        android:label="fragment_register_username"
+        tools:layout="@layout/fragment_register_username" >
+        <action
+            android:id="@+id/show_account_created"
+            app:destination="@id/accountCreatedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountCreatedFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.AccountCreatedFragment"
+        android:label="fragment_account_created"
+        tools:layout="@layout/fragment_account_created" >
+        <action
+            android:id="@+id/finish_registration"
+            app:destination="@id/mainActivity" />
     </fragment>
 </navigation>

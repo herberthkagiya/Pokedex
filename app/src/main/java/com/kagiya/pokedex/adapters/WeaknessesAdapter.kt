@@ -4,7 +4,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.kagiya.pokedex.data.DoubleDamageFrom
+import com.kagiya.pokedex.models.DoubleDamageFrom
 import com.kagiya.pokedex.databinding.ListItemWeaknessesBinding
 import com.kagiya.pokedex.util.BackgroundUtils
 

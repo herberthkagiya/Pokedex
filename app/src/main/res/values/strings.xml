@@ -56,7 +56,7 @@
     <string name="eighth_generation_title">8° GERAÇÃO</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    
+
     <!--Login/Registration-->
     <string name="create_account_title">Criar conta</string>
     <string name="create_account_encouragement_text">Falta pouco para \n explorar esse mundo!</string>
@@ -64,4 +64,18 @@
     <string name="continue_with_apple">Continuar com a Apple</string>
     <string name="continue_with_google">Continuar com o Google</string>
     <string name="continue_with_email">Continuar com um Email</string>
+    <string name="what_is_your_email">Qual é seu e-mail?</string>
+    <string name="email_input_placeholder">E-mail</string>
+    <string name="valid_email_warning">Use um endereço de e-mail válido.</string>
+    <string name="now">Agora...</string>
+    <string name="create_a_password">Crie uma senha</string>
+    <string name="password_input_placeholder">Senha</string>
+    <string name="strong_password_warning">Sua senha deve ter pelo menos 8 caracteres</string>
+    <string name="to_fisish">Pra finalizar</string>
+    <string name="what_is_your_name">Qual o seu nome?</string>
+    <string name="username_input_placeholder">Nome</string>
+    <string name="will_be_your_name_warning">Esse será seu nome de usuário no aplicativo.</string>
+    <string name="account_created">Sua conta foi criada\ncom Sucesso!</string>
+    <string name="account_created_welcome">Seja bem-vindo, treinador! Estamos\nanimados para acompanhar sua jornada.</string>
+
 </resources>

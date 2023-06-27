@@ -9,7 +9,7 @@
     android:id="@+id/type"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/rounded_background"
+    android:background="@drawable/bg_pokemon_rounded_background"
     android:gravity="center_horizontal|center_vertical"
     android:orientation="horizontal"
     android:paddingHorizontal="13dp"

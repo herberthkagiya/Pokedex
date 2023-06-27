@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/rounded_background"
+        android:background="@drawable/bg_pokemon_rounded_background"
         android:gravity="center_horizontal|center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="10dp"

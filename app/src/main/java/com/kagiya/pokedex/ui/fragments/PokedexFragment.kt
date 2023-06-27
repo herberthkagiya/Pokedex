@@ -15,9 +15,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kagiya.pokedex.adapters.PokedexAdapter
-import com.kagiya.pokedex.data.PokemonDetails
+import com.kagiya.pokedex.models.PokemonDetails
 import com.kagiya.pokedex.databinding.FragmentPokedexBinding
-import com.kagiya.pokedex.viewmodel.PokedexViewModel
+import com.kagiya.pokedex.viewmodels.PokedexViewModel
 import kotlinx.coroutines.launch
 
 

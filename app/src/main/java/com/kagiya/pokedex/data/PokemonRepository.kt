@@ -1,5 +1,10 @@
 package com.kagiya.pokedex.data
 
+import com.kagiya.pokedex.models.Pokemon
+import com.kagiya.pokedex.models.PokemonCategory
+import com.kagiya.pokedex.models.PokemonDescription
+import com.kagiya.pokedex.models.PokemonDetails
+import com.kagiya.pokedex.models.Weaknesses
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory

@@ -1,5 +1,10 @@
 package com.kagiya.pokedex.data
 
+import com.kagiya.pokedex.models.PokeApiResponse
+import com.kagiya.pokedex.models.PokemonCategory
+import com.kagiya.pokedex.models.PokemonDescription
+import com.kagiya.pokedex.models.PokemonDetails
+import com.kagiya.pokedex.models.Weaknesses
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

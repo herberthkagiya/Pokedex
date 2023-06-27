@@ -1,7 +1,6 @@
-package com.kagiya.pokedex.ui
+package com.kagiya.pokedex.ui.fragments
 
-import android.content.Context.MODE_PRIVATE
-import android.content.SharedPreferences.Editor
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.LayoutInflater
@@ -12,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.adapters.OnboardingAdapater
 import com.kagiya.pokedex.databinding.FragmentOnboardingBinding
+import com.kagiya.pokedex.models.OnboardingItem
 
 
 private const val ALREADY_SAW_ONBOARDING_SCREEN = "ALREADY_SAW_ONBOARDING_SCREEN"
@@ -55,7 +55,7 @@ class OnboardingFragment : Fragment() {
                 R.string.let_get_started_button
             ) {
                 val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-                val editor: Editor = preferences.edit()
+                val editor: SharedPreferences.Editor = preferences.edit()
                 editor.putBoolean(ALREADY_SAW_ONBOARDING_SCREEN, true)
                 editor.apply()
 
@@ -68,4 +68,7 @@ class OnboardingFragment : Fragment() {
         val adapter = OnboardingAdapater(onboardingItems)
         binding.slider.adapter = adapter
     }
+
+
 }
+

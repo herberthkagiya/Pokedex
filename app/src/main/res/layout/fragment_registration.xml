@@ -5,12 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    tools:context=".ui.fragments.RegistrationFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.fragments.RegistrationFragment">
+        tools:context=".ui.fragment.RegistrationFragment">
 
         <ImageButton
             android:id="@+id/imageButton"
@@ -77,6 +78,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/bg_rounded_registration_method"
             android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -114,6 +116,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@drawable/bg_rounded_registration_method"
             android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -151,6 +154,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/continue_with_email_button"
             style="@style/Theme.Pokedex.Buttons"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

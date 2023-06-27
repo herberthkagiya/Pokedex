@@ -1,13 +1,13 @@
-package com.kagiya.pokedex.viewmodel
+package com.kagiya.pokedex.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.kagiya.pokedex.data.PokemonCategory
-import com.kagiya.pokedex.data.PokemonDescription
-import com.kagiya.pokedex.data.PokemonDetails
+import com.kagiya.pokedex.models.PokemonCategory
+import com.kagiya.pokedex.models.PokemonDescription
+import com.kagiya.pokedex.models.PokemonDetails
 import com.kagiya.pokedex.data.PokemonRepository
-import com.kagiya.pokedex.data.Weaknesses
+import com.kagiya.pokedex.models.Weaknesses
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

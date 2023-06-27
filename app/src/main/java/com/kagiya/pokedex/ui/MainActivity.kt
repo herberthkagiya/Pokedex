@@ -72,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     private fun removeMenuDependingOnFragmentThatIsOnScreen(){
 
         val bottomNavigationView = binding.bottomNavigationView
@@ -82,6 +83,11 @@ class MainActivity : AppCompatActivity() {
                 R.id.pokemonDetailsFragment -> bottomNavigationView.visibility = View.GONE
                 R.id.onboardingFragment -> bottomNavigationView.visibility = View.GONE
                 R.id.loginAndRegisterOnboardingFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.registrationFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.emailRegistrationFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.passwordRegistrationFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.usernameRegistrationFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.accountCreatedFragment -> bottomNavigationView.visibility = View.GONE
                 else ->  bottomNavigationView.visibility = View.VISIBLE
             }
         }

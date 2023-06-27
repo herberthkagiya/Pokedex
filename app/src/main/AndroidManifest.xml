@@ -18,7 +18,7 @@
             android:name=".ui.fragments.LoginAndRegisterOnboardingFragment"
             android:exported="false" />
         <activity
-            android:name=".ui.OnboardingFragment"
+            android:name=".ui.fragments.OnboardingFragment"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"

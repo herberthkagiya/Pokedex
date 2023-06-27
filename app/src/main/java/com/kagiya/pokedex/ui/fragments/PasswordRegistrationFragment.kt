@@ -7,27 +7,26 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.kagiya.pokedex.R
-import com.kagiya.pokedex.databinding.FragmentRegionsBinding
-import com.kagiya.pokedex.databinding.FragmentRegistrationBinding
+import com.kagiya.pokedex.databinding.FragmentPasswordRegistrationBinding
 
 
-class RegistrationFragment : Fragment() {
-    private lateinit var binding : FragmentRegistrationBinding
+class PasswordRegistrationFragment : Fragment() {
+    private lateinit var binding: FragmentPasswordRegistrationBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentRegistrationBinding.inflate(inflater, container, false)
+        binding = FragmentPasswordRegistrationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.continueWithEmailButton.setOnClickListener{
+        binding.continueToRegisterUsernameButton.setOnClickListener{
             findNavController().navigate(
-                R.id.register_account_with_email
+                R.id.register_username
             )
         }
     }

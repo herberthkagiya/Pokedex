@@ -1,9 +1,9 @@
-package com.kagiya.pokedex.data
+package com.kagiya.pokedex.models
 
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Version(
+data class Shape(
     val name: String,
     val url: String
 )
