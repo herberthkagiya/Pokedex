@@ -54,10 +54,10 @@ class OnboardingFragment : Fragment() {
                 R.string.second_slide_desc,
                 R.string.let_get_started_button
             ) {
-                val preferences = PreferenceManager.getDefaultSharedPreferences(context)
-                val editor: SharedPreferences.Editor = preferences.edit()
-                editor.putBoolean(ALREADY_SAW_ONBOARDING_SCREEN, true)
-                editor.apply()
+//                val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+//                val editor: SharedPreferences.Editor = preferences.edit()
+//                editor.putBoolean(ALREADY_SAW_ONBOARDING_SCREEN, true)
+//                editor.apply()
 
                 findNavController().navigate(
                     R.id.show_login_and_create_account

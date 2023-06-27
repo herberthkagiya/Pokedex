@@ -30,8 +30,11 @@ class EmailRegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.continueToRegisterPasswordButton.setOnClickListener{
+            val email = binding.editText.text.toString()
+
             findNavController().navigate(
-                R.id.register_password
+
+                EmailRegistrationFragmentDirections.registerPassword(email)
             )
         }
     }

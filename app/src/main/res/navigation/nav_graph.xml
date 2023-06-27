@@ -83,6 +83,8 @@
         <action
             android:id="@+id/register_username"
             app:destination="@id/usernameRegistrationFragment" />
+        <argument android:name="email"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/usernameRegistrationFragment"
@@ -92,6 +94,12 @@
         <action
             android:id="@+id/show_account_created"
             app:destination="@id/accountCreatedFragment" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="password"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/accountCreatedFragment"

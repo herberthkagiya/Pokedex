@@ -1,11 +1,13 @@
 package com.kagiya.pokedex.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.FragmentRegisterUsernameBinding
 
@@ -13,6 +15,8 @@ import com.kagiya.pokedex.databinding.FragmentRegisterUsernameBinding
 class UsernameRegistrationFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterUsernameBinding
+
+    private val args: UsernameRegistrationFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,9 +30,17 @@ class UsernameRegistrationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.continueButton.setOnClickListener{
+            val username = binding.editText.text.toString()
+
+            createAccount(args.email, args.password, username)
+
             findNavController().navigate(
-                R.id.show_account_created
+                UsernameRegistrationFragmentDirections.showAccountCreated()
             )
         }
+    }
+
+    fun createAccount(email: String, passsword: String, name: String){
+        Log.d("Login", "$email $passsword $name")
     }
 }
