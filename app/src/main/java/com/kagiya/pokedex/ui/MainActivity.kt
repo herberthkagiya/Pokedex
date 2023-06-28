@@ -88,6 +88,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.passwordRegistrationFragment -> bottomNavigationView.visibility = View.GONE
                 R.id.usernameRegistrationFragment -> bottomNavigationView.visibility = View.GONE
                 R.id.accountCreatedFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.loginFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.loginInputFragment -> bottomNavigationView.visibility = View.GONE
+                R.id.successfulLoginFragment -> bottomNavigationView.visibility = View.GONE
                 else ->  bottomNavigationView.visibility = View.VISIBLE
             }
         }

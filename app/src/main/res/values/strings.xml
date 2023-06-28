@@ -78,4 +78,12 @@
     <string name="account_created">Sua conta foi criada\ncom Sucesso!</string>
     <string name="account_created_welcome">Seja bem-vindo, treinador! Estamos\nanimados para acompanhar sua jornada.</string>
 
+    <string name="login_title">Entrar</string>
+    <string name="good_to_see">Que bom te ver aqui novamente!</string>
+    <string name="welcome_back">Bem vindo de volta!</string>
+    <string name="fill_your_data">Preencha os dados</string>
+    <string name="forgot_password">Esqueceu sua senha?</string>
+    <string name="successful_welcome_back">Bem-vindo de volta,\nTreinador!!</string>
+    <string name="hope">Esperamos que tenha tido uma longa jornada\n desde a última vez em que nos visitou.</string>
+
 </resources>

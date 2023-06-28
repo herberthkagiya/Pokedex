@@ -43,11 +43,15 @@
         android:label="activity_login_register_onboarding"
         tools:layout="@layout/fragment_login_register_onboarding" >
         <action
+            android:id="@+id/show_login_screen"
+            app:destination="@id/loginFragment" />
+        <action
             android:id="@+id/skip_registration"
             app:destination="@id/mainActivity" />
         <action
-            android:id="@+id/create_account"
+            android:id="@+id/show_create_account_screen"
             app:destination="@id/registrationFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/onboardingFragment"
@@ -108,6 +112,33 @@
         tools:layout="@layout/fragment_account_created" >
         <action
             android:id="@+id/finish_registration"
+            app:destination="@id/mainActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/show_login_input_screen"
+            app:destination="@id/loginInputFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginInputFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.LoginInputFragment"
+        android:label="fragment_login_input"
+        tools:layout="@layout/fragment_login_input" >
+        <action
+            android:id="@+id/show_successful_login_screen"
+            app:destination="@id/successfulLoginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successfulLoginFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.SuccessfulLoginFragment"
+        android:label="fragment_successful_login"
+        tools:layout="@layout/fragment_successful_login" >
+        <action
+            android:id="@+id/finish_login"
             app:destination="@id/mainActivity" />
     </fragment>
 </navigation>

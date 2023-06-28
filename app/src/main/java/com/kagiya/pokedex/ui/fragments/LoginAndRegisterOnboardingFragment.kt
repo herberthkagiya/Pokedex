@@ -34,7 +34,13 @@ class LoginAndRegisterOnboardingFragment : Fragment() {
 
         binding.createAccountButton.setOnClickListener{
             findNavController().navigate(
-                R.id.create_account
+                R.id.show_create_account_screen
+            )
+        }
+
+        binding.alreadyHaveAccountButton.setOnClickListener{
+            findNavController().navigate(
+                R.id.show_login_screen
             )
         }
     }

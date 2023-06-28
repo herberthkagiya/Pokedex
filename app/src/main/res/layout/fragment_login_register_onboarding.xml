@@ -76,13 +76,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="@string/create_account_button"
-        app:layout_constraintBottom_toTopOf="@+id/appCompatButton"
+        app:layout_constraintBottom_toTopOf="@+id/already_have_account_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/already_have_account_button"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
