@@ -30,15 +30,20 @@ class ProfileFragment : Fragment() {
 
         binding.appVersionTextView.text = BuildConfig.VERSION_NAME
 
+        firebaseAuth = FirebaseAuth.getInstance()
+        val user = firebaseAuth.currentUser
+
         if(!isUserLogged()){
             findNavController().navigate(
                 R.id.notLoggedInProfileFragment
             )
         }
         else{
-            setUserInformation()
+            setUserInformation(user)
+            setupLogoutButton(firebaseAuth)
         }
     }
+
 
     private fun isUserLogged() : Boolean{
 
@@ -48,11 +53,17 @@ class ProfileFragment : Fragment() {
         return user != null
     }
 
-    private fun setUserInformation(){
-        firebaseAuth = FirebaseAuth.getInstance()
-
-        val user = firebaseAuth.currentUser
+    private fun setUserInformation(user: FirebaseUser?){
 
         binding.emailTextView.text = user?.email
+    }
+
+    private fun setupLogoutButton(firebaseAuth: FirebaseAuth) {
+        binding.logoutButton.setOnClickListener{
+            firebaseAuth.signOut()
+            findNavController().navigate(
+                R.id.mainActivity
+            )
+        }
     }
 }
