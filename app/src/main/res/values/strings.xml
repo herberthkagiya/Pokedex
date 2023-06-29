@@ -1,11 +1,13 @@
 <resources>
-    <string name="app_name">Pokedex</string>
+    <string name="app_name">Pokédex</string>
+    <string name="ui_language">Português (PT-BR)</string>
+    <string name="data_language">English (US)</string>
 
     <!-- Strings for bottom navigation menu -->
     <string name="pokedex_home_button">Pokedéx</string>
     <string name="regions_button">Regiões</string>
     <string name="favorites_button">Favoritos</string>
-    <string name="profile_button">Perfil</string>
+    <string name="profile_button">Conta</string>
 
 
     <!-- Strings for On Boarding Screen -->
@@ -15,12 +17,13 @@
     <string name="login_register_title">Está pronto para essa aventura?</string>
 
 
-    <!--Descriptions-->
+    <!--Onboarding Descriptions-->
     <string name="first_slide_desc">Acesse uma vasta lista de Pokémon de todas as gerações já feitas pela Nintendo</string>
     <string name="second_slide_desc">Cadastre-se e mantenha seu perfil, pokémon favoritos, configurações e muito mais, salvos no aplicativo, mesmo sem conexão com a internet.</string>
     <string name="login_register_desc">Basta criar uma conta e começar a explorar o mundo Pokémon hoje!</string>
 
-    <!--Buttons-->
+
+    <!--Onboarding Buttons-->
     <string name="continue_button">Continuar</string>
     <string name="let_get_started_button">Vamos começar!</string>
     <string name="skip_button">Pular</string>
@@ -54,9 +57,43 @@
     <string name="seventh_generation_title">7° GERAÇÃO</string>
     <string name="galar_title">Galar</string>
     <string name="eighth_generation_title">8° GERAÇÃO</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    
 
+    
+    <!--Profile-->
+    <string name="maintain_updated">Mantenha sua Pokédex\natualizada e participe\ndesse mundo.</string>
+    <string name="login_or_register">Entre ou Cadastre-se</string>
+    <string name="mega_evolution_label">Mega Evoluções</string>
+    <string name="mega_evolution_description">Habilita a exibição de mega\nevoluções.</string>
+    <string name="other_evolutions_label">Outras formas</string>
+    <string name="other_evolutions_description">Habilita a exibição de formas\nalternativas de pokémon.</string>
+    <string name="notifications_title">Notificações</string>
+    <string name="pokedex_updates_notification_label">Atualizações na pokédex</string>
+    <string name="pokedex_updates_notification_description">Novos Pokémons, habilidades,\ninformações, etc.</string>
+    <string name="pokemon_world_notification_label">Mundo Pokémon</string>
+    <string name="pokemon_world_notification_description">Acontecimentos e informações\ndo mundo de pokémon.</string>
+    <string name="language_label">Idioma</string>
+    <string name="ui_language_label">Idioma da interface</string>
+    <string name="data_language_label">Idioma das informações em jogo</string>
+    <string name="general_label">Geral</string>
+    <string name="version_label">Versão</string>
+    <string name="terms_conditions_label">Termos e condições</string>
+    <string name="terms_conditions_description">Tudo o que você precisa saber.</string>
+    <string name="help_central_label">Central de ajuda</string>
+    <string name="help_central_description">Precisa de ajuda? Fale conosco.</string>
+    <string name="about_label">Sobre</string>
+    <string name="about_description">Saiba mais sobre o app.</string>
+    <string name="account_information_label">Informações da conta</string>
+    <string name="others_label">Outros</string>
+    <string name="quit_label">Sair</string>
+    <string name="quit_description">Você entrou como</string>
+
+
+
+
+
+    
+    
     <!--Login/Registration-->
     <string name="create_account_title">Criar conta</string>
     <string name="create_account_encouragement_text">Falta pouco para \n explorar esse mundo!</string>

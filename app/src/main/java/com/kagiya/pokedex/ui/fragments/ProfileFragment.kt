@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.kagiya.pokedex.BuildConfig
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.FragmentProfileBinding
 
@@ -25,10 +28,31 @@ class ProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.appVersionTextView.text = BuildConfig.VERSION_NAME
+
+        if(!isUserLogged()){
+            findNavController().navigate(
+                R.id.notLoggedInProfileFragment
+            )
+        }
+        else{
+            setUserInformation()
+        }
+    }
+
+    private fun isUserLogged() : Boolean{
+
+        firebaseAuth = FirebaseAuth.getInstance()
+        val user = firebaseAuth.currentUser
+
+        return user != null
+    }
+
+    private fun setUserInformation(){
         firebaseAuth = FirebaseAuth.getInstance()
 
         val user = firebaseAuth.currentUser
 
-        binding.textView.text = user?.email.toString()
+        binding.emailTextView.text = user?.email
     }
 }

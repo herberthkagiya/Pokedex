@@ -27,6 +27,10 @@
         <item name="android:padding">15dp</item>
     </style>
 
+    <style name="SwitchButtonTheme" >
+        <item name="colorControlActivated">@color/buttonsAndMenu</item>
+    </style>
+
     <style name="Theme.Pokedex.ToolBar" parent="Theme.SplashScreen">
         <item name="android:background">@android:color/transparent</item>
     </style>

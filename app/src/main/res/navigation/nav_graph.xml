@@ -141,4 +141,9 @@
             android:id="@+id/finish_login"
             app:destination="@id/mainActivity" />
     </fragment>
+    <fragment
+        android:id="@+id/notLoggedInProfileFragment"
+        android:name="com.kagiya.pokedex.ui.fragments.NotLoggedInProfileFragment"
+        android:label="fragment_not_logged_in_profile"
+        tools:layout="@layout/fragment_not_logged_in_profile" />
 </navigation>
