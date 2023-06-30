@@ -28,7 +28,7 @@ class NotLoggedInProfileFragment : Fragment() {
 
         binding.loginOrRegisterButton.setOnClickListener{
             findNavController().navigate(
-                R.id.loginFragment
+                R.id.loginAndRegisterOnboardingFragment
             )
         }
 
