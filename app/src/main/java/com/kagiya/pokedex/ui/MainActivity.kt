@@ -8,8 +8,11 @@ import android.view.View
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.ActivityMainBinding
+import okhttp3.internal.notify
 
 private const val ALREADY_SAW_ONBOARDING_SCREEN = "ALREADY_SAW_ONBOARDING_SCREEN"
 private const val USER_PREFERENCES = "USER_PREFERENCES"
@@ -49,32 +52,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupBottomNavigationMenu(){
-        binding.bottomNavigationView.itemIconTintList = null
 
-        changeFragmentDependingOnMenuSelectedItem()
+        val navController = this.findNavController(R.id.fragment_container)
+        binding.bottomNavigationView.setupWithNavController(navController)
+
+        binding.bottomNavigationView.itemIconTintList = null
 
         removeMenuDependingOnFragmentThatIsOnScreen()
     }
 
-    private fun changeFragmentDependingOnMenuSelectedItem(){
-
-        val bottomNavigationView = binding.bottomNavigationView
-
-        bottomNavigationView.setOnItemSelectedListener { menuItem ->
-            val navController = supportFragmentManager.findFragmentById(R.id.fragment_container)?.findNavController()
-            when (menuItem.itemId) {
-                R.id.pokedex_home -> navController?.navigate(R.id.pokedexFragment)
-                R.id.regions -> navController?.navigate(R.id.regionsFragment)
-                R.id.favorites -> navController?.navigate(R.id.favoritesFragment)
-                R.id.profile -> navController?.navigate(R.id.profileFragment)
-            }
-            true
-        }
-    }
-
 
     private fun removeMenuDependingOnFragmentThatIsOnScreen(){
-
         val bottomNavigationView = binding.bottomNavigationView
         val navController = findNavController(R.id.fragment_container)
 

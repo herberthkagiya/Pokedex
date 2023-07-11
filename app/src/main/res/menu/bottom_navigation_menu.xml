@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/pokedex_home"
+    <item android:id="@+id/pokedexFragment"
         android:title="@string/pokedex_home_button"
         android:icon="@drawable/selector_pokedex_home" />
 
-    <item android:id="@+id/regions"
+    <item android:id="@+id/regionsFragment"
         android:title="@string/regions_button"
         android:icon="@drawable/selector_regions" />
 
-    <item android:id="@+id/favorites"
+    <item android:id="@+id/favoritesFragment"
        android:title="@string/favorites_button"
         android:icon="@drawable/selector_favorite" />
 
-    <item android:id="@+id/profile"
+    <item android:id="@+id/profileFragment"
         android:title="@string/profile_button"
         android:icon="@drawable/selector_profile" />
 </menu>
