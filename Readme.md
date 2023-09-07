@@ -13,9 +13,9 @@
     <br/>
     <br/>
     <br/>
-    
+    .
     <a href="https://github.com/herberthkagiya/Pokedex/issues">Report Bug</a>
-    
+    .
     <a href="https://github.com/herberthkagiya/Pokedex/issues">Request Feature</a>
   </p>
 </p>
