@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/ShaanCoding/ReadME-Generator">
-    <img src="\app\src\main\res\drawable\ic_splash_screen.xml" alt="Logo" width="80" height="80">
+    <img src="\app\src\main\res\drawable\image.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Pokedex</h3>
