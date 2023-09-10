@@ -9,7 +9,7 @@
   <p align="center">
     An Pokedex to Android to the lovers of pokemon.
     <br/>
-    Note This Project Is Still W.I.P
+    Note this project is still W.I.P
     <br/>
     <br/>
     <br/>
