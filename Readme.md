@@ -1,7 +1,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/ShaanCoding/ReadME-Generator">
-    <img src="./\app\src\main\res\drawable\image.png" alt="Logo" width="80" height="80">
+    <img src="\app\src\main\res\drawable\image.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Pokedex</h3>
@@ -24,7 +24,7 @@
 
 ## About The Project
 
-![Screen Shot](docs\screenshots\preview.png)
+![Screen Shot](\docs\screenshots\preview.png)
 
 I've been studying native Android development with Kotlin for a while now and decided to do this project to practice and put it in my portfolio. A decided to do this kind of project because when we have something we like, there are much more inspiration e motivation to continue working on.
 
