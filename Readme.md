@@ -24,7 +24,7 @@
 
 ## About The Project
 
-![Screen Shot](\docs\screenshots\preview.png)
+<img src="docs/screenshots/preview.png" alt="Logo">
 
 I've been studying native Android development with Kotlin for a while now and decided to do this project to practice and put it in my portfolio. A decided to do this kind of project because when we have something we like, there are much more inspiration e motivation to continue working on.
 
