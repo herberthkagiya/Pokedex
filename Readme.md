@@ -24,6 +24,6 @@
 
 ## About The Project
 
-![Screen Shot](C:\Tayki\Programming\Pokedex\docs\screenshots\preview.png)
+![Screen Shot](docs\screenshots\preview.png)
 
 
