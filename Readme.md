@@ -50,6 +50,7 @@ To create this application, i applied some of the most used practices and techno
 
 - Android Studio
 - Android emulator or real device
+- Firebase account
 
 ### Installation
 
@@ -58,8 +59,9 @@ To create this application, i applied some of the most used practices and techno
 ```sh
 git clone https://github.com/herberthkagiya/Pokedex
 ```
-
-2. Build the project with Android Studio
+2. Connect the project to Firebase
+   
+3. Build the project with Android Studio
 
 3. Install the app
 
