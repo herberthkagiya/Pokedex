@@ -8,19 +8,20 @@ import com.kagiya.pokedex.models.PokemonDescription
 import com.kagiya.pokedex.models.PokemonDetails
 import com.kagiya.pokedex.data.PokemonRepository
 import com.kagiya.pokedex.models.Weaknesses
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class PokemonDetailsViewModel(pokemonName: String) : ViewModel() {
-
-
-    private val pokemonRepository = PokemonRepository()
+@HiltViewModel
+class PokemonDetailsViewModel @Inject constructor(
+    private val repository: PokemonRepository
+) : ViewModel() {
 
     private val _pokemonDetails: MutableStateFlow<PokemonDetails?> = MutableStateFlow(null)
     val pokemonDetails: StateFlow<PokemonDetails?> = _pokemonDetails.asStateFlow()
-
 
     private val _pokemonDescription: MutableStateFlow<PokemonDescription?> = MutableStateFlow(null)
     val pokemonDescription: StateFlow<PokemonDescription?> = _pokemonDescription.asStateFlow()
@@ -31,21 +32,22 @@ class PokemonDetailsViewModel(pokemonName: String) : ViewModel() {
     private val _pokemonWeaknesses: MutableStateFlow<Weaknesses?> = MutableStateFlow(null)
     val pokemonWeaknesses: StateFlow<Weaknesses?> = _pokemonWeaknesses.asStateFlow()
 
-    init{
+
+    fun loadPokemonDetails(pokemonName: String){
         viewModelScope.launch {
-            _pokemonDetails.value = pokemonRepository.searchPokemon(pokemonName)
-            _pokemonDescription.value = pokemonRepository.getPokemonDescription(pokemonName)
-            _pokemonCategory.value = pokemonRepository.getPokemonCategory(pokemonName)
-            _pokemonWeaknesses.value = pokemonRepository.getPokemonWeaknesses(_pokemonDetails.value!!.types[0].type.name)
+            _pokemonDetails.value = repository.searchPokemon(pokemonName)
+            _pokemonDescription.value = repository.getPokemonDescription(pokemonName)
+            _pokemonCategory.value = repository.getPokemonCategory(pokemonName)
+            _pokemonWeaknesses.value = repository.getPokemonWeaknesses(_pokemonDetails.value!!.types[0].type.name)
         }
     }
 }
 
-class PokemonDetailsViewModelFactory(
-    private val pokemonName: String
-) : ViewModelProvider.Factory {
-
-    override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return PokemonDetailsViewModel(pokemonName) as T
-    }
-}
+//class PokemonDetailsViewModelFactory(
+//    private val pokemonName: String
+//) : ViewModelProvider.Factory {
+//
+//    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//        return PokemonDetailsViewModel(pokemonName) as T
+//    }
+//}

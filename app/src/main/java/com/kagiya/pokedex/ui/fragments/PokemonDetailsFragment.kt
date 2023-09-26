@@ -22,24 +22,26 @@ import com.kagiya.pokedex.models.Weaknesses
 import com.kagiya.pokedex.databinding.FragmentPokemonDetailsBinding
 import com.kagiya.pokedex.util.BackgroundUtils
 import com.kagiya.pokedex.viewmodels.PokemonDetailsViewModel
-import com.kagiya.pokedex.viewmodels.PokemonDetailsViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 const val ONE_POKEMON_TYPE = 1
 const val TWO_POKEMON_TYPES = 2
 
+@AndroidEntryPoint
 class PokemonDetailsFragment : Fragment(){
 
     private val args: PokemonDetailsFragmentArgs by navArgs()
 
     private lateinit var binding : FragmentPokemonDetailsBinding
 
-    private val pokemonDetailsViewModel : PokemonDetailsViewModel by viewModels{
-        PokemonDetailsViewModelFactory(args.pokemonName)
-    }
+    private val pokemonDetailsViewModel : PokemonDetailsViewModel by viewModels()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        pokemonDetailsViewModel.loadPokemonDetails(args.pokemonName)
     }
 
     override fun onCreateView(
@@ -54,7 +56,6 @@ class PokemonDetailsFragment : Fragment(){
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
 
         binding.weaknesses.layoutManager = GridLayoutManager(context, 2)

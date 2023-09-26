@@ -18,25 +18,25 @@ import com.kagiya.pokedex.adapters.PokedexAdapter
 import com.kagiya.pokedex.models.PokemonDetails
 import com.kagiya.pokedex.databinding.FragmentPokedexBinding
 import com.kagiya.pokedex.viewmodels.PokedexViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 
 private const val TAG = "PokedexFragment"
 
+@AndroidEntryPoint
 class PokedexFragment : Fragment() {
 
     private val pokedexViewModel : PokedexViewModel by viewModels()
+    private lateinit var binding: FragmentPokedexBinding
 
-    private var _binding: FragmentPokedexBinding? = null
-    private val binding
-        get() = checkNotNull(_binding) {
-            "Cannot access binding because it is null. Is the view visible?"
-        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setHasOptionsMenu(true)
+
+        pokedexViewModel.getPokemonList()
     }
 
     override fun onCreateView(
@@ -44,7 +44,7 @@ class PokedexFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentPokedexBinding.inflate(inflater, container, false)
+        binding = FragmentPokedexBinding.inflate(inflater, container, false)
         binding.pokedexList.layoutManager = LinearLayoutManager(context)
         return binding.root
     }
@@ -56,7 +56,7 @@ class PokedexFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.CREATED){
-                pokedexViewModel.pokemonDetails.collect { details ->
+                pokedexViewModel.pokemonDetailedList.collect { details ->
 
                     if (binding.pokedexList.adapter != null){
 
@@ -111,7 +111,7 @@ class PokedexFragment : Fragment() {
             val shouldPaginate = isAtTheLastItem && isNotAtBeginning && isTotalMoreThanVisible && isScrolling
 
             if(shouldPaginate){
-                pokedexViewModel.getPokemonDetails()
+                pokedexViewModel.getPokemonList()
                 isScrolling = false
             }
         }

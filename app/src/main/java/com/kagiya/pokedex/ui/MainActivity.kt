@@ -12,10 +12,13 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.kagiya.pokedex.R
 import com.kagiya.pokedex.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.internal.notify
 
 private const val ALREADY_SAW_ONBOARDING_SCREEN = "ALREADY_SAW_ONBOARDING_SCREEN"
 private const val USER_PREFERENCES = "USER_PREFERENCES"
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

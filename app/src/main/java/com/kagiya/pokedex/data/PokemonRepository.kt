@@ -5,37 +5,22 @@ import com.kagiya.pokedex.models.PokemonCategory
 import com.kagiya.pokedex.models.PokemonDescription
 import com.kagiya.pokedex.models.PokemonDetails
 import com.kagiya.pokedex.models.Weaknesses
+import dagger.hilt.InstallIn
+import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.create
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-private const val BASE_URL = "https://pokeapi.co/api/v2/"
 
 
-class PokemonRepository {
-
+class PokemonRepository @Inject constructor(
     private val pokemonService: PokemonService
-
-    init {
-        val client: OkHttpClient = OkHttpClient.Builder()
-            .connectTimeout(60, TimeUnit.SECONDS)
-            .writeTimeout(120, TimeUnit.SECONDS)
-            .readTimeout(60, TimeUnit.SECONDS)
-            .build()
-
-        val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .client(client)
-            .build()
-
-        pokemonService = retrofit.create()
-    }
+){
 
     suspend fun fetchPokemonList(offset: Int, limit: Int): List<Pokemon> = pokemonService.fetchPokemonList(offset, limit).results
-
 
     suspend fun searchPokemon(name: String): PokemonDetails = pokemonService.searchPokemon(name)
 
